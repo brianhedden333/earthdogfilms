@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowDown, Play } from "lucide-react";
@@ -27,7 +26,7 @@ const Index = () => {
       </section>
 
       {/* Brand Reel Section */}
-      <section className="py-20 bg-stone-100">
+      <section id="brand-reel" className="py-20 bg-stone-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-6">Our Story in Motion</h2>
@@ -37,14 +36,13 @@ const Index = () => {
           </div>
           
           <div className="relative max-w-4xl mx-auto">
-            <div className="aspect-video bg-stone-800 rounded-lg flex items-center justify-center group cursor-pointer hover:bg-stone-700 transition-colors duration-300">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-amber-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-amber-500 transition-colors duration-300">
-                  <Play className="w-8 h-8 text-white ml-1" />
-                </div>
-                <p className="text-white text-lg">Watch Our Brand Reel</p>
-                <p className="text-stone-300 text-sm mt-2">60 seconds of cinematic storytelling</p>
-              </div>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <iframe
+                src="https://player.vimeo.com/video/336916761"
+                className="w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                title="Earth Dog Films Brand Reel"
+              />
             </div>
           </div>
         </div>

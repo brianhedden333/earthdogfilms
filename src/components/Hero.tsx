@@ -4,10 +4,28 @@ import { ArrowDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+  const scrollToBrandReel = () => {
+    const brandReelSection = document.getElementById('brand-reel');
+    if (brandReelSection) {
+      brandReelSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-stone-900 via-stone-800 to-amber-900">
-      {/* Background Image Overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full">
+        <iframe
+          src="https://player.vimeo.com/video/336916761?autoplay=1&loop=1&muted=1&background=1&controls=0"
+          className="w-full h-full object-cover"
+          style={{ minHeight: '100vh' }}
+          allow="autoplay; fullscreen"
+          title="Earth Dog Films Hero Video"
+        />
+      </div>
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
       
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
@@ -22,8 +40,12 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-          <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 text-lg">
-            <Link to="/our-work">🎥 Watch Our Reel</Link>
+          <Button 
+            onClick={scrollToBrandReel}
+            size="lg" 
+            className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 text-lg"
+          >
+            🎥 Watch Our Reel
           </Button>
           <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-stone-900 px-8 py-4 text-lg">
             <Link to="/contact">📩 Let's Tell Your Story</Link>
