@@ -2,7 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
@@ -26,15 +26,15 @@
     --muted: 38 35% 92%;
     --muted-foreground: 25 15% 45%;
 
-    --accent: 43 84% 55%;
-    --accent-foreground: 25 5% 15%;
+    --accent: 0 84% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 38 25% 87%;
     --input: 38 25% 87%;
-    --ring: 43 84% 55%;
+    --ring: 0 84% 60%;
 
     --radius: 0.5rem;
 
@@ -67,15 +67,15 @@
     --muted: 25 15% 25%;
     --muted-foreground: 25 15% 65%;
 
-    --accent: 43 84% 55%;
-    --accent-foreground: 25 5% 15%;
+    --accent: 0 84% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 25 15% 25%;
     --input: 25 15% 25%;
-    --ring: 43 84% 55%;
+    --ring: 0 84% 60%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -95,11 +95,12 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
   
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
   }
 }
 

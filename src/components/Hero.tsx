@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
         <iframe
@@ -29,9 +29,9 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
-        <h1 className="text-5xl md:text-7xl font-serif text-white mb-8 leading-tight">
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
           Cinematic storytelling
-          <span className="block text-amber-400">for brands and movements</span>
+          <span className="block text-red-500">for brands and movements</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-stone-200 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
@@ -43,7 +43,7 @@ const Hero = () => {
           <Button 
             onClick={scrollToBrandReel}
             size="lg" 
-            className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 text-lg"
+            className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg"
           >
             🎥 Watch Our Reel
           </Button>

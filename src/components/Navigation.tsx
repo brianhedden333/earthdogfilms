@@ -17,7 +17,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-white/95 backdrop-blur-sm fixed w-full z-50 border-b border-stone-200">
+    <nav className="bg-black/20 backdrop-blur-md fixed w-full z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
@@ -26,7 +26,7 @@ const Navigation = () => {
               alt="Earth Dog Films Logo" 
               className="h-10 w-10"
             />
-            <span className="text-2xl font-serif text-stone-900">Earth Dog Films</span>
+            <span className="text-2xl font-bold text-white">Earth Dog Films</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -35,21 +35,21 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-stone-700 hover:text-amber-700 transition-colors font-light ${
-                  location.pathname === item.path ? 'text-amber-700' : ''
+                className={`text-white hover:text-red-400 transition-colors font-medium ${
+                  location.pathname === item.path ? 'text-red-400' : ''
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white">
+            <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
               <Link to="/contact">Get Started</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -58,18 +58,18 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-stone-200">
+          <div className="md:hidden py-4 border-t border-white/10">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className="block py-3 text-stone-700 hover:text-amber-700 transition-colors"
+                className="block py-3 text-white hover:text-red-400 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="w-full mt-4 bg-amber-600 hover:bg-amber-700 text-white">
+            <Button asChild className="w-full mt-4 bg-red-600 hover:bg-red-700 text-white">
               <Link to="/contact" onClick={() => setIsOpen(false)}>Get Started</Link>
             </Button>
           </div>

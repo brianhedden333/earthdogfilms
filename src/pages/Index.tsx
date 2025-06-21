@@ -29,7 +29,7 @@ const Index = () => {
       <section id="brand-reel" className="py-20 bg-stone-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-6">Our Story in Motion</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">Our Story in Motion</h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
               See how we bring stories to life through our brand reel
             </p>
@@ -52,7 +52,7 @@ const Index = () => {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-4">Stories That Resonate</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Stories That Resonate</h2>
             <p className="text-lg text-stone-600">What our collaborators say</p>
           </div>
           
@@ -91,12 +91,12 @@ const Index = () => {
       {/* Call to Action */}
       <section className="py-20 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto text-center px-6">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6">Ready to Tell Your Story?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Tell Your Story?</h2>
           <p className="text-xl text-stone-300 mb-10 leading-relaxed">
             Let's create something meaningful together
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3">
+            <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3">
               <Link to="/our-work">🎥 Watch Our Work</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-stone-400 text-stone-300 hover:bg-stone-800 px-8 py-3">
