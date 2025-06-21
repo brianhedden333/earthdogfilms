@@ -36,8 +36,12 @@ const About = () => {
             <CardContent className="p-12">
               <div className="grid md:grid-cols-3 gap-8 items-center">
                 <div className="md:col-span-1">
-                  <div className="w-48 h-48 bg-stone-300 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <span className="text-stone-600 text-sm">Brian Hedden Photo</span>
+                  <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/53fcafd1-f8cf-48f7-b59c-ffe240a967e7.png" 
+                      alt="Brian Hedden, Founder & Filmmaker at Earth Dog Films"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="md:col-span-2">

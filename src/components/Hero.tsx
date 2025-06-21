@@ -18,7 +18,7 @@ const Hero = () => {
         <iframe
           src="https://player.vimeo.com/video/336916761?autoplay=1&loop=1&muted=1&background=1&controls=0"
           className="w-full h-full object-cover"
-          style={{ minHeight: '100vh' }}
+          style={{ width: '100%', height: '100vh', minHeight: '100vh' }}
           allow="autoplay; fullscreen"
           title="Earth Dog Films Hero Video"
         />
@@ -47,7 +47,7 @@ const Hero = () => {
           >
             🎥 Watch Our Reel
           </Button>
-          <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-stone-900 px-8 py-4 text-lg">
+          <Button asChild variant="outline" size="lg" className="border-white text-black bg-white hover:bg-gray-100 hover:text-black px-8 py-4 text-lg">
             <Link to="/contact">📩 Let's Tell Your Story</Link>
           </Button>
         </div>

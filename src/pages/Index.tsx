@@ -99,7 +99,7 @@ const Index = () => {
             <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3">
               <Link to="/our-work">🎥 Watch Our Work</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-stone-400 text-stone-300 hover:bg-stone-800 px-8 py-3">
+            <Button asChild variant="outline" size="lg" className="border-stone-400 text-black bg-white hover:bg-gray-100 hover:text-black px-8 py-3">
               <Link to="/contact">📩 Let's Tell Your Story</Link>
             </Button>
           </div>
