@@ -20,8 +20,13 @@ const Navigation = () => {
     <nav className="bg-white/95 backdrop-blur-sm fixed w-full z-50 border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center py-4">
-          <Link to="/" className="text-2xl font-serif text-stone-900 hover:text-amber-700 transition-colors">
-            Earth Dog Films
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img 
+              src="/lovable-uploads/82b1cca1-818a-4a01-8231-815d385e98af.png" 
+              alt="Earth Dog Films Logo" 
+              className="h-10 w-10"
+            />
+            <span className="text-2xl font-serif text-stone-900">Earth Dog Films</span>
           </Link>
 
           {/* Desktop Navigation */}
