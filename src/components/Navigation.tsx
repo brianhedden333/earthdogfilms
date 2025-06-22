@@ -8,8 +8,11 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const navItems = [
-    { name: 'Home', path: '/' },
     { name: 'Our Work', path: '/our-work' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
@@ -26,7 +29,7 @@ const Navigation = () => {
               alt="Earth Dog Films Logo" 
               className="h-10 w-10"
             />
-            <span className="text-2xl font-bold text-white">Earth Dog Films</span>
+            <span className="text-2xl font-light text-white">Earth Dog Films</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -35,6 +38,7 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
+                onClick={scrollToTop}
                 className={`text-white hover:text-red-400 transition-colors font-medium ${
                   location.pathname === item.path ? 'text-red-400' : ''
                 }`}
@@ -43,7 +47,7 @@ const Navigation = () => {
               </Link>
             ))}
             <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact" onClick={scrollToTop}>Get Started</Link>
             </Button>
           </div>
 
@@ -64,13 +68,19 @@ const Navigation = () => {
                 key={item.name}
                 to={item.path}
                 className="block py-3 text-white hover:text-red-400 transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToTop();
+                }}
               >
                 {item.name}
               </Link>
             ))}
             <Button asChild className="w-full mt-4 bg-red-600 hover:bg-red-700 text-white">
-              <Link to="/contact" onClick={() => setIsOpen(false)}>Get Started</Link>
+              <Link to="/contact" onClick={() => {
+                setIsOpen(false);
+                scrollToTop();
+              }}>Get Started</Link>
             </Button>
           </div>
         )}

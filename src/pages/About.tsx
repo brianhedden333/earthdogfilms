@@ -11,7 +11,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-serif mb-6">Storytelling with Soul</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Storytelling with Soul</h1>
         </div>
       </section>
 
@@ -45,8 +45,8 @@ const About = () => {
                   </div>
                 </div>
                 <div className="md:col-span-2">
-                  <h3 className="text-2xl font-serif text-stone-900 mb-4">Brian Hedden</h3>
-                  <p className="text-amber-700 font-medium mb-4">Founder & Filmmaker</p>
+                  <h3 className="text-2xl font-bold text-stone-900 mb-4">Brian Hedden</h3>
+                  <p className="text-red-600 font-medium mb-4">Founder & Filmmaker</p>
                   <p className="text-stone-600 leading-relaxed mb-4">
                     Brian's journey began in documentary filmmaking, where he learned that the most 
                     powerful stories emerge from authentic human connection. This foundation shapes 
@@ -67,7 +67,7 @@ const About = () => {
       <section className="py-20 bg-stone-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-6">Our Values</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">Our Values</h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
               The principles that guide every story we tell
             </p>
@@ -76,10 +76,10 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-none shadow-lg bg-white text-center">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-white text-2xl">🎬</span>
                 </div>
-                <h3 className="text-xl font-serif text-stone-900 mb-4">Story First</h3>
+                <h3 className="text-xl font-bold text-stone-900 mb-4">Story First</h3>
                 <p className="text-stone-600 leading-relaxed">
                   Every frame serves the narrative. We believe in the power of authentic 
                   storytelling to create lasting impact.
@@ -89,10 +89,10 @@ const About = () => {
 
             <Card className="border-none shadow-lg bg-white text-center">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-white text-2xl">🤝</span>
                 </div>
-                <h3 className="text-xl font-serif text-stone-900 mb-4">True Partnership</h3>
+                <h3 className="text-xl font-bold text-stone-900 mb-4">True Partnership</h3>
                 <p className="text-stone-600 leading-relaxed">
                   We work alongside our clients as collaborators, not just vendors. 
                   Your vision becomes our shared mission.
@@ -102,10 +102,10 @@ const About = () => {
 
             <Card className="border-none shadow-lg bg-white text-center">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-white text-2xl">💫</span>
                 </div>
-                <h3 className="text-xl font-serif text-stone-900 mb-4">Meaningful Impact</h3>
+                <h3 className="text-xl font-bold text-stone-900 mb-4">Meaningful Impact</h3>
                 <p className="text-stone-600 leading-relaxed">
                   We partner with organizations that are making a positive difference 
                   in the world, amplifying their message through film.
@@ -119,13 +119,13 @@ const About = () => {
       {/* Call to Action */}
       <section className="py-20 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto text-center px-6">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6">Ready to Work Together?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Work Together?</h2>
           <p className="text-xl text-stone-300 mb-10">
             Let's explore how we can bring your story to life
           </p>
           <a 
             href="/contact" 
-            className="inline-block bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 text-lg rounded-md transition-colors duration-300"
+            className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg rounded-md transition-colors duration-300"
           >
             Start the Conversation
           </a>

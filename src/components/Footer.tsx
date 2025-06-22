@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-2xl font-serif mb-4">Earth Dog Films</h3>
+            <h3 className="text-2xl font-bold mb-4">Earth Dog Films</h3>
             <p className="text-stone-400 leading-relaxed">
               Cinematic storytelling for brands and movements. 
               Creating emotionally resonant video content that matters.
@@ -25,12 +25,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-medium mb-4">Connect</h4>
-            <div className="space-y-2">
-              <p className="text-stone-400">hello@earthdogfilms.com</p>
-              <p className="text-stone-400">@earthdogfilms</p>
-              <p className="text-stone-400">earthdogfilms.com</p>
-            </div>
+            <Link to="/contact" className="text-lg font-medium hover:text-red-400 transition-colors">Connect</Link>
           </div>
         </div>
         

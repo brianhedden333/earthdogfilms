@@ -44,7 +44,7 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-serif mb-6">Let's Tell Your Story</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Let's Tell Your Story</h1>
           <p className="text-xl text-stone-300 leading-relaxed">
             Ready to bring your story to life? Whether you're planning a campaign, launching a brand, 
             or advocating for change, we'd love to hear from you.
@@ -66,7 +66,7 @@ const Contact = () => {
                         required
                         value={formData.name}
                         onChange={(e) => handleInputChange("name", e.target.value)}
-                        className="border-stone-300 focus:border-amber-600"
+                        className="border-stone-300 focus:border-red-600"
                       />
                     </div>
 
@@ -77,14 +77,14 @@ const Contact = () => {
                         required
                         value={formData.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
-                        className="border-stone-300 focus:border-amber-600"
+                        className="border-stone-300 focus:border-red-600"
                       />
                     </div>
 
                     <div>
                       <label className="block text-stone-700 font-medium mb-2">What kind of video do you need?</label>
                       <Select value={formData.videoType} onValueChange={(value) => handleInputChange("videoType", value)}>
-                        <SelectTrigger className="border-stone-300 focus:border-amber-600">
+                        <SelectTrigger className="border-stone-300 focus:border-red-600">
                           <SelectValue placeholder="Select video type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -101,7 +101,7 @@ const Contact = () => {
                     <div>
                       <label className="block text-stone-700 font-medium mb-2">Budget Range (Optional)</label>
                       <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
-                        <SelectTrigger className="border-stone-300 focus:border-amber-600">
+                        <SelectTrigger className="border-stone-300 focus:border-red-600">
                           <SelectValue placeholder="Select budget range" />
                         </SelectTrigger>
                         <SelectContent>
@@ -117,7 +117,7 @@ const Contact = () => {
                     <div>
                       <label className="block text-stone-700 font-medium mb-2">Timeline (Optional)</label>
                       <Select value={formData.timeline} onValueChange={(value) => handleInputChange("timeline", value)}>
-                        <SelectTrigger className="border-stone-300 focus:border-amber-600">
+                        <SelectTrigger className="border-stone-300 focus:border-red-600">
                           <SelectValue placeholder="When do you need this completed?" />
                         </SelectTrigger>
                         <SelectContent>
@@ -136,11 +136,11 @@ const Contact = () => {
                         value={formData.message}
                         onChange={(e) => handleInputChange("message", e.target.value)}
                         placeholder="Share your vision, goals, or any questions you have..."
-                        className="border-stone-300 focus:border-amber-600 h-32"
+                        className="border-stone-300 focus:border-red-600 h-32"
                       />
                     </div>
 
-                    <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3">
+                    <Button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white py-3">
                       Send Message
                     </Button>
                   </form>
@@ -151,7 +151,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-serif text-stone-900 mb-6">Get in Touch</h2>
+                <h2 className="text-2xl font-bold text-stone-900 mb-6">Get in Touch</h2>
                 <p className="text-stone-600 leading-relaxed mb-8">
                   We typically respond within 24 hours. For urgent projects or questions, 
                   feel free to reach out directly via email or phone.
@@ -160,7 +160,7 @@ const Contact = () => {
 
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -170,7 +170,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
                     <Phone className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -180,7 +180,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -190,20 +190,20 @@ const Contact = () => {
                 </div>
               </div>
 
-              <Card className="border-none shadow-lg bg-amber-50 mt-12">
+              <Card className="border-none shadow-lg bg-red-50 mt-12">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-serif text-stone-900 mb-3">What Happens Next?</h3>
+                  <h3 className="text-lg font-bold text-stone-900 mb-3">What Happens Next?</h3>
                   <div className="space-y-3 text-sm text-stone-600">
                     <div className="flex items-start">
-                      <span className="w-6 h-6 bg-amber-600 text-white rounded-full flex items-center justify-center text-xs mr-3 mt-0.5">1</span>
+                      <span className="w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-xs mr-3 mt-0.5">1</span>
                       <p>We'll review your project details and respond within 24 hours</p>
                     </div>
                     <div className="flex items-start">
-                      <span className="w-6 h-6 bg-amber-600 text-white rounded-full flex items-center justify-center text-xs mr-3 mt-0.5">2</span>
+                      <span className="w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-xs mr-3 mt-0.5">2</span>
                       <p>Schedule a discovery call to discuss your vision and goals</p>
                     </div>
                     <div className="flex items-start">
-                      <span className="w-6 h-6 bg-amber-600 text-white rounded-full flex items-center justify-center text-xs mr-3 mt-0.5">3</span>
+                      <span className="w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-xs mr-3 mt-0.5">3</span>
                       <p>Receive a custom proposal tailored to your project</p>
                     </div>
                   </div>
