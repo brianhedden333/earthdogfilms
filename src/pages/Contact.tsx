@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,17 +19,41 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you for your message! We'll be in touch within 24 hours.");
-    setFormData({
-      name: "",
-      email: "",
-      videoType: "",
-      budget: "",
-      timeline: "",
-      message: ""
-    });
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mqabykrl', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          'video-type': formData.videoType,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        toast.success("Thank you for your message! We'll be in touch within 24 hours.");
+        setFormData({
+          name: "",
+          email: "",
+          videoType: "",
+          budget: "",
+          timeline: "",
+          message: ""
+        });
+      } else {
+        toast.error("There was an error sending your message. Please try again.");
+      }
+    } catch (error) {
+      toast.error("There was an error sending your message. Please try again.");
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -211,15 +234,6 @@ const Contact = () => {
               </Card>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Footer CTA */}
-      <section className="py-16 bg-stone-900 text-white">
-        <div className="max-w-4xl mx-auto text-center px-6">
-          <p className="text-lg text-stone-300 mb-6">
-            earthdogfilms.com • hello@earthdogfilms.com • @earthdogfilms
-          </p>
         </div>
       </section>
 

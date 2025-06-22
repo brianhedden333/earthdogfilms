@@ -9,6 +9,10 @@ import ClientLogos from "@/components/ClientLogos";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
       <Navigation />
@@ -60,10 +64,10 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3">
-              <Link to="/our-work">Watch Our Work</Link>
+              <Link to="/our-work" onClick={scrollToTop}>Watch Our Work</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-stone-400 text-black bg-white hover:bg-gray-100 hover:text-black px-8 py-3">
-              <Link to="/contact">Let's Tell Your Story</Link>
+              <Link to="/contact" onClick={scrollToTop}>Let's Tell Your Story</Link>
             </Button>
           </div>
         </div>

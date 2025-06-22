@@ -11,13 +11,12 @@ const ClientLogos = () => {
     { src: "/lovable-uploads/1bdc76b6-368e-4b01-8aea-de543a2aec93.png", alt: "Transformative Solutions" },
     { src: "/lovable-uploads/8a3b22d1-602c-4647-b109-973c9cd9d0fe.png", alt: "The Relationship School" },
     { src: "/lovable-uploads/a1a46ffc-9434-44e1-a32b-ee125c92400a.png", alt: "VMIX" },
-    // Placeholder for additional logos to make 12 total
-    { src: "/placeholder.svg", alt: "Partner 11" },
-    { src: "/placeholder.svg", alt: "Partner 12" }
+    { src: "/lovable-uploads/ba709d68-f986-44b2-a8e2-0aadaee4d670.png", alt: "quoteThat!" },
+    { src: "/lovable-uploads/baf3f2af-acfb-4248-9736-c722070c14d6.png", alt: "ECPAC Early Childhood Partnership of Adams County" }
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h3 className="text-2xl font-bold text-stone-900 mb-4">Trusted by Organizations That Matter</h3>

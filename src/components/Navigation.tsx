@@ -29,7 +29,7 @@ const Navigation = () => {
               alt="Earth Dog Films Logo" 
               className="h-10 w-10"
             />
-            <span className="text-2xl text-white font-galano-extralight">Earth Dog Films</span>
+            <span className="text-2xl text-white font-galano-alt-extralight">Earth Dog Films</span>
           </Link>
 
           {/* Desktop Navigation */}

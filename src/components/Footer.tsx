@@ -2,6 +2,10 @@
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-stone-900 text-white py-16">
       <div className="max-w-6xl mx-auto px-6">
@@ -17,15 +21,15 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-medium mb-4">Navigation</h4>
             <div className="space-y-2">
-              <Link to="/our-work" className="block text-stone-400 hover:text-white transition-colors">Our Work</Link>
-              <Link to="/about" className="block text-stone-400 hover:text-white transition-colors">About</Link>
-              <Link to="/services" className="block text-stone-400 hover:text-white transition-colors">Services</Link>
-              <Link to="/contact" className="block text-stone-400 hover:text-white transition-colors">Contact</Link>
+              <Link to="/our-work" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Our Work</Link>
+              <Link to="/about" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">About</Link>
+              <Link to="/services" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Services</Link>
+              <Link to="/contact" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
           
           <div>
-            <Link to="/contact" className="text-lg font-medium hover:text-red-400 transition-colors">Connect</Link>
+            <Link to="/contact" onClick={scrollToTop} className="text-lg font-medium hover:text-red-400 transition-colors">Connect</Link>
           </div>
         </div>
         
