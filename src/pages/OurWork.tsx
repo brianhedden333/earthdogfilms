@@ -220,10 +220,10 @@ const OurWork = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {documentaryWork.map((project, index) => (
               <Card key={index} className="group cursor-pointer hover:shadow-xl transition-all duration-300 border-none overflow-hidden">
-                <a href={getVideoUrl(project.vimeoId, project.youtubeId)} target="_blank" rel="noopener noreferrer">
+                <a href={getVideoUrl(undefined, project.youtubeId)} target="_blank" rel="noopener noreferrer">
                   <div className="relative">
                     <img 
-                      src={getVideoThumbnail(project.vimeoId, project.youtubeId)} 
+                      src={getVideoThumbnail(undefined, project.youtubeId)} 
                       alt={project.title}
                       className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
