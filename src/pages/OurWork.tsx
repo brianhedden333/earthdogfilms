@@ -1,11 +1,21 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Play, ExternalLink } from "lucide-react";
+import { Play } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import VideoLightbox from "@/components/VideoLightbox";
 
 const OurWork = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<{
+    vimeoId?: string;
+    youtubeId?: string;
+    title: string;
+  } | null>(null);
+
   const commercialWork = [
     {
       title: "QuoteThat",
@@ -105,14 +115,13 @@ const OurWork = () => {
     return "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&h=450";
   };
 
-  const getVideoUrl = (vimeoId?: string, youtubeId?: string) => {
-    if (vimeoId) {
-      return `https://vimeo.com/${vimeoId}`;
-    }
-    if (youtubeId) {
-      return `https://www.youtube.com/watch?v=${youtubeId}`;
-    }
-    return "#";
+  const handleVideoClick = (project: { title: string; vimeoId?: string; youtubeId?: string }) => {
+    setSelectedVideo({
+      vimeoId: project.vimeoId,
+      youtubeId: project.youtubeId,
+      title: project.title
+    });
+    setLightboxOpen(true);
   };
 
   return (
@@ -144,7 +153,7 @@ const OurWork = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {commercialWork.map((project, index) => (
               <Card key={index} className="group cursor-pointer hover:shadow-xl transition-all duration-300 border-none overflow-hidden">
-                <a href={getVideoUrl(project.vimeoId)} target="_blank" rel="noopener noreferrer">
+                <div onClick={() => handleVideoClick(project)}>
                   <div className="relative">
                     <img 
                       src={getVideoThumbnail(project.vimeoId)} 
@@ -161,7 +170,7 @@ const OurWork = () => {
                     <h3 className="text-xl font-sans text-stone-900 mb-3">{project.title}</h3>
                     <p className="text-stone-600 leading-relaxed">{project.description}</p>
                   </CardContent>
-                </a>
+                </div>
               </Card>
             ))}
           </div>
@@ -182,7 +191,7 @@ const OurWork = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {documentaryMarketingWork.map((project, index) => (
               <Card key={index} className="group cursor-pointer hover:shadow-xl transition-all duration-300 border-none overflow-hidden">
-                <a href={getVideoUrl(project.vimeoId, project.youtubeId)} target="_blank" rel="noopener noreferrer">
+                <div onClick={() => handleVideoClick(project)}>
                   <div className="relative">
                     <img 
                       src={getVideoThumbnail(project.vimeoId, project.youtubeId)} 
@@ -199,7 +208,7 @@ const OurWork = () => {
                     <h3 className="text-xl font-sans text-stone-900 mb-3">{project.title}</h3>
                     <p className="text-stone-600 leading-relaxed">{project.description}</p>
                   </CardContent>
-                </a>
+                </div>
               </Card>
             ))}
           </div>
@@ -220,7 +229,7 @@ const OurWork = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {documentaryWork.map((project, index) => (
               <Card key={index} className="group cursor-pointer hover:shadow-xl transition-all duration-300 border-none overflow-hidden">
-                <a href={getVideoUrl(undefined, project.youtubeId)} target="_blank" rel="noopener noreferrer">
+                <div onClick={() => handleVideoClick(project)}>
                   <div className="relative">
                     <img 
                       src={getVideoThumbnail(undefined, project.youtubeId)} 
@@ -237,7 +246,7 @@ const OurWork = () => {
                     <h3 className="text-xl font-sans text-stone-900 mb-3">{project.title}</h3>
                     <p className="text-stone-600 leading-relaxed">{project.description}</p>
                   </CardContent>
-                </a>
+                </div>
               </Card>
             ))}
           </div>
@@ -252,10 +261,18 @@ const OurWork = () => {
             Let's create something meaningful for your organization
           </p>
           <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3">
-            <a href="/contact">Start Your Project</a>
+            <Link to="/contact">Start Your Project</Link>
           </Button>
         </div>
       </section>
+
+      <VideoLightbox
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        vimeoId={selectedVideo?.vimeoId}
+        youtubeId={selectedVideo?.youtubeId}
+        title={selectedVideo?.title || ""}
+      />
 
       <Footer />
     </div>

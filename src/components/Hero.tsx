@@ -29,12 +29,12 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-8 leading-tight">
           Cinematic storytelling
           <span className="block text-red-500">for brands and movements</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-stone-200 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+        <p className="text-lg sm:text-xl md:text-2xl text-stone-200 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
           We create powerful, emotionally resonant video content that connects 
           mission-driven organizations with their audiences
         </p>
