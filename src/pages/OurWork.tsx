@@ -100,8 +100,8 @@ const OurWork = () => {
   const documentaryWork = [
     {
       title: "Fracking the System: Colorado's Oil and Gas Wars",
-      description: "When a mega-fracking site gets moved from a White neighborhood to a BIPOC neighborhood, a mother fights to try and stop it. She joins the state-wide effort to change the law, but the powerful oil and gas industry fights back with lawsuits, harassment, sabotage, and $50 million. Watch the film here: "
- <a href="https://www.frackingthesystem.com">FrackingTheSystem.com</a>,
+      description: <p> When a mega-fracking site gets moved from a White neighborhood to a BIPOC neighborhood, a mother fights to try and stop it. She joins the state-wide effort to change the law, but the powerful oil and gas industry fights back with lawsuits, harassment, sabotage, and $50 million. Watch the film here: 
+ <a href="https://www.frackingthesystem.com">FrackingTheSystem.com</a> </p>,
       youtubeId: "T-azhfhG0H0"
     }
   ];
