@@ -19,32 +19,32 @@ const OurWork = () => {
   const commercialWork = [
     {
       title: "QuoteThat",
-      description: "Transformative business solutions showcase",
+      description: "A humorous commercial for a mobile app business based in Boulder, Colorado",
       vimeoId: "251723265"
     },
     {
       title: "Transformative Solutions",
-      description: "Innovation in sustainable business practices",
+      description: "A promotional video for a business coaching company based in Colorado.",
       vimeoId: "270209806"
     },
     {
       title: "California Center for Sustainable Energy",
-      description: "Leading the way in renewable energy solutions",
+      description: "An informative video about a sustainability non-profit based in San Diego, California.",
       vimeoId: "51964106"
     },
     {
       title: "VMIX Media",
-      description: "Creative media production excellence",
+      description: "An explainer video for a white-label video distribution startup based in Del Mar, California.",
       vimeoId: "252373163"
     },
     {
       title: "Patchwork School",
-      description: "Educational innovation and community building",
+      description: "A website video for an innovative school based in Louisville, Colorado.",
       vimeoId: "363362257"
     },
     {
       title: "Sacred Sons",
-      description: "Men's community and personal transformation",
+      description: "A promotional video for a men's community and personal transformation course.",
       vimeoId: "344372805"
     }
   ];
@@ -52,47 +52,47 @@ const OurWork = () => {
   const documentaryMarketingWork = [
     {
       title: "Elephant Collective",
-      description: "Conservation through community action",
+      description: "A portrait of an musician incubation program in Boulder, Colorado.",
       vimeoId: "379624699"
     },
     {
       title: "Earthaven Ecovillage",
-      description: "Sustainable living community showcase",
+      description: "An overview of a permaculure-based ecovillage outside of Asheville, North Carolina.",
       youtubeId: "ybFE15LM1h8"
     },
     {
       title: "Advocates for Injured Athletes",
-      description: "Supporting athlete recovery and advocacy",
+      description: "The origin story of a youth sports safety non-profit based in San Diego, California.",
       vimeoId: "28742880"
     },
     {
       title: "The Blind Cafe",
-      description: "Unique dining experience in darkness",
+      description: "A unique dining experience in darkness.",
       vimeoId: "363364357"
     },
     {
       title: "The Linkery's Ethan and Steph",
-      description: "Farm-to-table restaurant story",
+      description: "The story of cask beer at a farm-to-table restaurant in San Diego, California.",
       vimeoId: "17943030"
     },
     {
       title: "The Linkery's Max",
-      description: "Chef's passion for sustainable dining",
+      description: "A chef's passion for house-made everything at a farm-to-table restaurant in San Diego, California.",
       vimeoId: "17577920"
     },
     {
       title: "The Linkery's Ian",
-      description: "Local sourcing and community connection",
+      description: "Hand-made bread and community connection at a farm-to-table restaurant in San Diego, California",
       vimeoId: "17988223"
     },
     {
       title: "Zone 7 Winter",
-      description: "Seasonal agricultural practices",
+      description: "A local food distribution company overcomes the challenges of winter in New Jersey.",
       vimeoId: "19838162"
     },
     {
       title: "Zone 7 Spring",
-      description: "Spring farming and renewal",
+      description: "A local food distribution company celebrates spring farming and renewal in New Jersey.",
       vimeoId: "118621660"
     }
   ];
@@ -100,7 +100,8 @@ const OurWork = () => {
   const documentaryWork = [
     {
       title: "Fracking the System: Colorado's Oil and Gas Wars",
-      description: <a href="https://www.frackingthesystem.com">FrackingTheSystem.com</a>,
+      description: "When a mega-fracking site gets moved from a White neighborhood to a BIPOC neighborhood, a mother fights to try and stop it. She joins the state-wide effort to change the law, but the powerful oil and gas industry fights back with lawsuits, harassment, sabotage, and $50 million. Watch the film here: "
+ <a href="https://www.frackingthesystem.com">FrackingTheSystem.com</a>,
       youtubeId: "T-azhfhG0H0"
     }
   ];
