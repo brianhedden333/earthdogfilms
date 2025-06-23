@@ -188,7 +188,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-stone-900 mb-1">Email</h3>
-                    <p className="text-stone-600">hello@earthdogfilms.com</p>
+                    <p className="text-stone-600">brian [at] brianhedden . com</p>
                   </div>
                 </div>
 
@@ -198,7 +198,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-stone-900 mb-1">Phone</h3>
-                    <p className="text-stone-600">(555) 123-4567</p>
+                    <p className="text-stone-600">(303) 503-9925</p>
                   </div>
                 </div>
 
@@ -208,7 +208,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-stone-900 mb-1">Location</h3>
-                    <p className="text-stone-600">Based in Colorado, working worldwide</p>
+                    <p className="text-stone-600">Based in Boulder, Colorado, working worldwide</p>
                   </div>
                 </div>
               </div>
