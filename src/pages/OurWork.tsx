@@ -100,7 +100,7 @@ const OurWork = () => {
   const documentaryWork = [
     {
       title: "Fracking the System: Colorado's Oil and Gas Wars",
-      description: <a href="https://www.frackingthesystem.com">"FrackingTheSystem.com"</a>,
+      description: <a href="https://www.frackingthesystem.com">FrackingTheSystem.com</a>,
       youtubeId: "T-azhfhG0H0"
     }
   ];
