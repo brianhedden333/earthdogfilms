@@ -12,17 +12,17 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen md:aspect-video flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
         <iframe
           src="https://player.vimeo.com/video/336916761?autoplay=1&loop=1&muted=1&background=1&controls=0"
-          className="w-full h-full md:object-cover"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover"
           style={{ 
-            width: '100%', 
-            height: '100%',
-            minWidth: '100vw',
-            minHeight: '100vh'
+            width: '100vw',
+            height: '56.25vw', // 16:9 aspect ratio
+            minHeight: '100vh',
+            minWidth: '177.78vh', // 16:9 aspect ratio
           }}
           allow="autoplay; fullscreen"
           title="Earth Dog Films Hero Video"
