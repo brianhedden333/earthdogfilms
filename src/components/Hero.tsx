@@ -12,13 +12,18 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative aspect-video flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen md:aspect-video flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
         <iframe
           src="https://player.vimeo.com/video/336916761?autoplay=1&loop=1&muted=1&background=1&controls=0"
-          className="w-full h-full object-cover"
-          style={{ width: '100%', height: '100%' }}
+          className="w-full h-full md:object-cover"
+          style={{ 
+            width: '100%', 
+            height: '100%',
+            minWidth: '100vw',
+            minHeight: '100vh'
+          }}
           allow="autoplay; fullscreen"
           title="Earth Dog Films Hero Video"
         />
@@ -29,12 +34,12 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-8 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-8 leading-tight">
           Cinematic storytelling
           <span className="block text-red-500">for brands and movements</span>
         </h1>
         
-        <p className="text-lg sm:text-xl md:text-2xl text-stone-200 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-stone-200 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
           We create powerful, emotionally resonant video content that connects 
           mission-driven organizations with their audiences
         </p>

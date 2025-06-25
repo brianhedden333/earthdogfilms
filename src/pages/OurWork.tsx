@@ -1,7 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Play } from "lucide-react";
+import { Play, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
@@ -140,7 +140,7 @@ const OurWork = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-sans mb-6">Our Work</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Work</h1>
           <p className="text-xl text-stone-300 max-w-3xl mx-auto leading-relaxed">
             We collaborate with organizations, businesses, and causes to tell stories that matter. 
             Our work lives at the intersection of authenticity and visual craft.
@@ -152,7 +152,7 @@ const OurWork = () => {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-sans text-stone-900 mb-6">Commercial & Brand Films</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">Commercial & Brand Films</h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
               We help purpose-led companies and entrepreneurs tell their stories—through brand films, 
               testimonials, and human-centered promotional content.
@@ -190,7 +190,7 @@ const OurWork = () => {
       <section className="py-20 bg-stone-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-sans text-stone-900 mb-6">Documentary Marketing</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">Documentary Marketing</h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
               Marketing content that brings documentary stories to life and connects with audiences 
               through authentic storytelling.
@@ -228,7 +228,7 @@ const OurWork = () => {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-sans text-stone-900 mb-6">Documentary</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">Documentary</h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
               Our roots are in documentary. We produce films that inform, 
               mobilize, and deepen impact.
@@ -252,8 +252,14 @@ const OurWork = () => {
                     </div>
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-sans text-stone-900 mb-3">{project.title}</h3>
-                    <p className="text-stone-600 leading-relaxed">{project.description}</p>
+                    <h3 className="text-xl font-bold text-stone-900 mb-3">{project.title}</h3>
+                    <div className="text-stone-600 leading-relaxed mb-4">{project.description}</div>
+                    <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
+                      <a href="https://www.frackingthesystem.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                        Website
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </Button>
                   </CardContent>
                 </div>
               </Card>
@@ -265,7 +271,7 @@ const OurWork = () => {
       {/* Call to Action */}
       <section className="py-20 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto text-center px-6">
-          <h2 className="text-3xl md:text-4xl font-sans mb-6">Love What You See?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Love What You See?</h2>
           <p className="text-xl text-stone-300 mb-10">
             Let's create something meaningful for your organization
           </p>
