@@ -43,7 +43,7 @@ const Index = () => {
           <div className="relative max-w-4xl mx-auto">
             <div className="aspect-video rounded-lg overflow-hidden">
               <iframe
-                src="https://player.vimeo.com/video/336916761"
+                src="https://player.vimeo.com/video/787378175"
                 className="w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
                 title="Earth Dog Films Brand Reel"
