@@ -22,7 +22,7 @@ const Index = () => {
       <section className="py-20 px-6 max-w-6xl mx-auto">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-lg md:text-xl text-stone-700 leading-relaxed font-light">
-            Earth Dog Films is a story-first production company helping mission-driven brands, 
+            Earth Dog Films is an award-winning production company helping mission-driven brands, 
             educators, and changemakers connect with their audiences through powerful, emotionally 
             resonant video. From campaign films to founder stories, we bring your message to life 
             with depth, clarity, and heart.
