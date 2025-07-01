@@ -53,8 +53,7 @@ const About = () => {
                     every project at Earth Dog Films.
                   </p>
                   <p className="text-stone-600 leading-relaxed">
-                    When he's not behind the camera, Brian can be found exploring the mountains 
-                    with his rescue dog—the inspiration behind the company name.
+                    When he's not behind the camera, Brian can be found exploring nature, mindfulness and civic engagement.
                   </p>
                 </div>
               </div>
