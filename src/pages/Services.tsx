@@ -7,29 +7,34 @@ import Footer from "@/components/Footer";
 const Services = () => {
   const services = [
     {
-      title: "Brand Films",
-      description: "Founder stories, origin narratives, and value-driven content that communicates who you are—and why you matter.",
-      features: ["Founder interviews", "Company culture videos", "Mission-driven narratives", "Brand storytelling"]
+      title: "Production",
+      description: "Full-service production from concept to completion. We handle every detail so you can focus on your story.",
+      path: "/services/production"
     },
     {
-      title: "Testimonials & Case Studies",
-      description: "Real voices, real impact. We help your community tell your story for you.",
-      features: ["Client testimonials", "Impact stories", "Case study videos", "Community voices"]
+      title: "Cinematography",
+      description: "Cinematic excellence in every frame. We bring visual artistry and technical precision to every project.",
+      path: "/services/cinematography"
     },
     {
-      title: "Campaign & Awareness Videos",
-      description: "Video content for political, educational, or advocacy campaigns—designed to inform, inspire, and activate.",
-      features: ["Political campaigns", "Educational content", "Advocacy films", "Social awareness videos"]
+      title: "Post-Production",
+      description: "Where the magic happens. We refine and polish your footage into a finished story that resonates.",
+      path: "/services/post-production"
     },
     {
-      title: "Documentary Shorts",
-      description: "Meaningful stories, beautifully told. We partner with nonprofits, social movements, and educators to produce short-form documentary work.",
-      features: ["Short documentaries", "Social issue films", "Educational documentaries", "Nonprofit storytelling"]
+      title: "Directing",
+      description: "Guiding your story from vision to reality with creative leadership and emotional intelligence.",
+      path: "/services/directing"
     },
     {
-      title: "Ongoing Collaborations",
-      description: "Looking to tell stories across a season or campaign? We offer flexible packages for ongoing content creation and strategic storytelling.",
-      features: ["Content series", "Seasonal campaigns", "Multi-part narratives", "Long-term partnerships"]
+      title: "Aerial & Drone",
+      description: "Capture breathtaking perspectives from above with professional drone cinematography.",
+      path: "/services/aerial-drone"
+    },
+    {
+      title: "Consulting",
+      description: "Expert guidance to help you navigate the filmmaking process and make strategic decisions.",
+      path: "/services/consulting"
     }
   ];
 
@@ -50,26 +55,18 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="border-none shadow-lg bg-white hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="p-8">
-                  <div className="flex items-start mb-6">
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-stone-900 mb-4">{service.title}</h3>
-                      <p className="text-stone-600 leading-relaxed mb-6">{service.description}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-sm text-stone-500">
-                        <span className="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
+              <Card key={index} className="border-none shadow-lg bg-white hover:shadow-xl transition-shadow duration-300 group cursor-pointer">
+                <a href={service.path}>
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-bold text-stone-900 mb-4 group-hover:text-red-600 transition-colors">{service.title}</h3>
+                    <p className="text-stone-600 leading-relaxed mb-6">{service.description}</p>
+                    <Button className="bg-red-600 hover:bg-red-700 text-white">
+                      Learn More
+                    </Button>
+                  </CardContent>
+                </a>
               </Card>
             ))}
           </div>
