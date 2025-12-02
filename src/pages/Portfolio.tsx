@@ -18,8 +18,8 @@ const Portfolio = () => {
 
   const commercialWork = [
     {
-      title: "Yes on 1A",
-      description: "One of the commercials for Strong Start Bright Future's Yes on 1A campaign.",
+      title: "Yes on 7A",
+      description: "One of the commercials for Strong Start Bright Future's Yes on 7A campaign.",
       vimeoId: "1136292196",
       customThumbnail: "/lovable-uploads/yes-on-1a-thumb.png"
     },

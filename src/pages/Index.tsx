@@ -64,7 +64,7 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3">
-              <Link to="/our-work" onClick={scrollToTop}>Watch Our Work</Link>
+              <Link to="/portfolio" onClick={scrollToTop}>Watch Our Work</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-stone-400 text-black bg-white hover:bg-gray-100 hover:text-black px-8 py-3">
               <Link to="/contact" onClick={scrollToTop}>Let's Tell Your Story</Link>

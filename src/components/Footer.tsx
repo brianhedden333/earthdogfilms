@@ -21,9 +21,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-medium mb-4">Navigation</h4>
             <div className="space-y-2">
-              <Link to="/our-work" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Our Work</Link>
+              <Link to="/portfolio" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Portfolio</Link>
               <Link to="/about" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">About</Link>
               <Link to="/services" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Services</Link>
+              <Link to="/blog" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Blog</Link>
               <Link to="/contact" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
