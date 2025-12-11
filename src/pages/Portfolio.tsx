@@ -63,14 +63,14 @@ const Portfolio = () => {
 
   const documentaryMarketingWork = [
     {
-      title: "Elephant Collective",
-      description: "A portrait of an musician incubation program in Boulder, Colorado.",
-      vimeoId: "379624699"
-    },
-    {
       title: "Earthaven Ecovillage",
       description: "An overview of a permaculure-based ecovillage outside of Asheville, North Carolina.",
       youtubeId: "ybFE15LM1h8"
+    },
+    {
+      title: "Elephant Collective",
+      description: "A portrait of an musician incubation program in Boulder, Colorado.",
+      vimeoId: "379624699"
     },
     {
       title: "Advocates for Injured Athletes",
@@ -270,7 +270,13 @@ const Portfolio = () => {
                     <h3 className="text-xl font-bold text-stone-900 mb-3">{project.title}</h3>
                     <div className="text-stone-600 leading-relaxed mb-4">{project.description}</div>
                     <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
-                      <a href="https://www.frackingthesystem.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                      <a
+                        href="https://www.frackingthesystem.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2"
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         Website
                         <ArrowRight className="w-4 h-4" />
                       </a>
