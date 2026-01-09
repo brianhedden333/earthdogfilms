@@ -128,6 +128,34 @@ const Portfolio = () => {
   }
   ];
 
+  const musicDanceWork = [
+    {
+      title: "Jeff and Paige - The Great Monarch Migration (Official Music Video)",
+      description: "Official music video celebrating the wonder of the monarch butterfly migration.",
+      vimeoId: "270158301"
+    },
+    {
+      title: "Ayla Nereo - Tightrope Walker at Red Rocks Promo",
+      description: "Promotional video for Ayla Nereo's performance at Red Rocks Amphitheatre.",
+      vimeoId: "355230121"
+    },
+    {
+      title: "Redrocks Polish Ambassador ft. Ayla Nereo (Wildlight)",
+      description: "Live performance footage of Polish Ambassador featuring Ayla Nereo at Red Rocks.",
+      vimeoId: "336685007"
+    },
+    {
+      title: "Changing of the Light - Acroyoga",
+      description: "A beautiful acroyoga performance capturing movement and connection.",
+      vimeoId: "625275624"
+    },
+    {
+      title: "Jeacey Adams Hooping to Nada by Lido Pimienta in Paonia, CO",
+      description: "Flow arts performance filmed in the scenic landscape of Paonia, Colorado.",
+      vimeoId: "487005355"
+    }
+  ];
+
   const getVideoThumbnail = (vimeoId?: string, youtubeId?: string, customThumbnail?: string) => {
     if (customThumbnail) {
       return customThumbnail;
@@ -298,6 +326,46 @@ const Portfolio = () => {
                         <ArrowRight className="w-4 h-4" />
                       </a>
                     </Button>
+                  </CardContent>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Music & Dance Section */}
+      <section className="py-20 bg-stone-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">Music & Dance</h2>
+            <p className="text-lg text-stone-600 max-w-3xl mx-auto">
+              Capturing the beauty of movement and music through cinematic visuals.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {musicDanceWork.map((project, index) => (
+              <Card key={index} className="group cursor-pointer hover:shadow-xl transition-all duration-300 border-none overflow-hidden">
+                <div onClick={() => handleVideoClick(project)}>
+                  <div className="relative">
+                    <img
+                      src={getVideoThumbnail(project.vimeoId)}
+                      alt={project.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      width={400}
+                      height={192}
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
+                        <Play className="w-6 h-6 text-white ml-1" />
+                      </div>
+                    </div>
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-sans text-stone-900 mb-3">{project.title}</h3>
+                    <p className="text-stone-600 leading-relaxed">{project.description}</p>
                   </CardContent>
                 </div>
               </Card>
