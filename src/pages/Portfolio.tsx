@@ -7,6 +7,8 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import VideoLightbox from "@/components/VideoLightbox";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Portfolio = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -150,8 +152,14 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Video Production Portfolio - Documentary & Brand Films"
+        description="Explore Earth Dog Films' portfolio of documentary marketing, commercial brand films, and feature documentaries. See our award-winning video production work for mission-driven organizations."
+        canonical="/portfolio"
+      />
       <Navigation />
-      
+      <Breadcrumbs />
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
@@ -183,6 +191,9 @@ const Portfolio = () => {
                       src={getVideoThumbnail(project.vimeoId, project.youtubeId)}
                       alt={project.title}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      width={400}
+                      height={192}
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
@@ -221,6 +232,9 @@ const Portfolio = () => {
                       src={getVideoThumbnail(project.vimeoId, undefined, project.customThumbnail)}
                       alt={project.title}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      width={400}
+                      height={192}
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
@@ -255,10 +269,13 @@ const Portfolio = () => {
               <Card key={index} className="group cursor-pointer hover:shadow-xl transition-all duration-300 border-none overflow-hidden">
                 <div onClick={() => handleVideoClick(project)}>
                   <div className="relative">
-                    <img 
-                      src={getVideoThumbnail(undefined, project.youtubeId)} 
+                    <img
+                      src={getVideoThumbnail(undefined, project.youtubeId)}
                       alt={project.title}
                       className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      width={400}
+                      height={224}
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">

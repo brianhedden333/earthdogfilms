@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const AerialDrone = () => {
   const services = [
@@ -25,9 +27,39 @@ const AerialDrone = () => {
     }
   ];
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are your drone pilots FAA certified?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all our drone pilots are FAA Part 107 certified and fully insured for commercial drone operations. We follow all regulations and safety protocols."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of aerial shots can you capture?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We can capture a wide range of aerial shots including sweeping landscape reveals, property and real estate footage, location surveys, tracking shots, and dramatic establishing shots that add scale and perspective to your story."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Aerial Drone Cinematography - Boulder, Colorado"
+        description="Professional aerial drone cinematography in Boulder, Colorado. FAA certified pilots, stunning aerial shots, real estate footage, and location surveys for film and video production."
+        canonical="/services/aerial-drone"
+        structuredData={faqStructuredData}
+      />
       <Navigation />
+      <Breadcrumbs />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">

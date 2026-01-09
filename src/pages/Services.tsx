@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Services = () => {
   const services = [
@@ -40,8 +42,14 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Video Production Services - Boulder, Colorado"
+        description="Full-service video production in Boulder, Colorado. Services include production, cinematography, post-production, directing, aerial drone, and consulting for brands and documentaries."
+        canonical="/services"
+      />
       <Navigation />
-      
+      <Breadcrumbs />
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">

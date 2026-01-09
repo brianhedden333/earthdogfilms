@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
+import ServicesPreview from "@/components/ServicesPreview";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const scrollToTop = () => {
@@ -15,6 +18,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Earth Dog Films - Cinematic Storytelling for Brands and Movements"
+        description="Earth Dog Films creates powerful, emotionally resonant video content for mission-driven brands, educators, and changemakers in Boulder, Colorado. Award-winning documentary and brand film production."
+        canonical="/"
+      />
       <Navigation />
       <Hero />
       
@@ -53,7 +61,11 @@ const Index = () => {
         </div>
       </section>
 
+      <ServicesPreview />
+
       <ClientLogos />
+
+      <Testimonials />
 
       {/* Call to Action */}
       <section className="py-20 bg-stone-900 text-white">

@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Directing = () => {
   const services = [
@@ -25,9 +27,39 @@ const Directing = () => {
     }
   ];
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does a director do in video production?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A director develops and executes the creative vision, crafts the narrative structure, works with subjects and talent to capture authentic performances, and coordinates the crew to achieve the project's goals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you direct documentary and commercial projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we provide directing services for both documentary and commercial projects. Our approach emphasizes emotional intelligence and authentic storytelling regardless of the format."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Video Directing Services - Creative Direction Boulder, CO"
+        description="Professional video directing services in Boulder, Colorado. Creative vision development, story structure, talent direction, and on-set leadership for documentaries and brand films."
+        canonical="/services/directing"
+        structuredData={faqStructuredData}
+      />
       <Navigation />
+      <Breadcrumbs />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">

@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Cinematography = () => {
   const services = [
@@ -25,9 +27,39 @@ const Cinematography = () => {
     }
   ];
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What equipment do you use for cinematography?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We use professional cinema cameras and high-quality lenses to capture stunning visuals. Our equipment selection is tailored to each project's specific needs and creative vision."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes your cinematography different?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We combine visual storytelling expertise with technical precision. Every frame is carefully composed to serve the narrative, using thoughtful lighting design and artistic framing to create emotional impact."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Cinematography Services - Professional Video Boulder, CO"
+        description="Expert cinematography services in Boulder, Colorado. Visual storytelling, professional camera operation, lighting design, and artistic composition for brand films and documentaries."
+        canonical="/services/cinematography"
+        structuredData={faqStructuredData}
+      />
       <Navigation />
+      <Breadcrumbs />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">

@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const PostProduction = () => {
   const services = [
@@ -25,9 +27,39 @@ const PostProduction = () => {
     }
   ];
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is included in post-production services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our post-production services include video editing, color grading, sound design and mixing, and motion graphics. We refine raw footage into polished, compelling narratives."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many revision rounds are included?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We typically include multiple revision rounds to ensure you're completely satisfied with the final product. The exact number depends on your project scope and is outlined in our proposal."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Post-Production Services - Video Editing Boulder, CO"
+        description="Professional post-production services in Boulder, Colorado. Video editing, color grading, sound design, mixing, and motion graphics to bring your story to life."
+        canonical="/services/post-production"
+        structuredData={faqStructuredData}
+      />
       <Navigation />
+      <Breadcrumbs />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">

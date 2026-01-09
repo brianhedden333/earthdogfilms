@@ -31,23 +31,27 @@ const Hero = () => {
       
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
-      
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-8 leading-tight">
+
+      {/* Logo - Positioned Higher */}
+      <div className="absolute inset-0 flex items-start justify-center pt-32 md:pt-40 lg:pt-48 z-10">
+        <img
+          src="/lovable-uploads/earth-dog-films-logo.png"
+          alt="Earth Dog Films Logo"
+          className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain"
+        />
+      </div>
+
+      {/* Content at Bottom */}
+      <div className="absolute bottom-12 left-0 right-0 z-10 text-center px-6">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
           Cinematic storytelling
           <span className="block text-red-500">for brands and movements</span>
         </h1>
-        
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-stone-200 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-          We create powerful, emotionally resonant video content that connects 
-          mission-driven organizations with their audiences
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-          <Button 
+
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <Button
             onClick={scrollToBrandReel}
-            size="lg" 
+            size="lg"
             className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg"
           >
             Watch Our Reel
@@ -56,11 +60,6 @@ const Hero = () => {
             <Link to="/contact">Let's Tell Your Story</Link>
           </Button>
         </div>
-      </div>
-      
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-        <ArrowDown className="w-6 h-6" />
       </div>
     </section>
   );

@@ -1,25 +1,25 @@
 
 const ClientLogos = () => {
   const logos = [
-    { src: "/lovable-uploads/56f74e86-9505-439d-a65e-df6d9388eb19.png", alt: "Arden Kaywin Vocal Studio" },
-    { src: "/lovable-uploads/8770b1f8-a217-487c-aa0f-a80d7df6e493.png", alt: "The Blind Cafe" },
-    { src: "/lovable-uploads/962b1621-f56e-4745-8ab1-e2923f4c0d91.png", alt: "Center for Sustainable Energy California" },
-    { src: "/lovable-uploads/c40569ab-eddc-4f65-9c51-f30c9300004c.png", alt: "Earthaven Ecovillage" },
-    { src: "/lovable-uploads/3139cffa-0f7b-4e6a-883d-d8f371ed80b2.png", alt: "Jeff & Paige" },
-    { src: "/lovable-uploads/ad5884c8-74fc-4210-bc57-15ee651d96c4.png", alt: "The Patchwork School" },
-    { src: "/lovable-uploads/3d9d70fb-ac3c-4827-849f-3740dd910fe1.png", alt: "Sacred Sons" },
-    { src: "/lovable-uploads/1bdc76b6-368e-4b01-8aea-de543a2aec93.png", alt: "Transformative Solutions" },
-    { src: "/lovable-uploads/8a3b22d1-602c-4647-b109-973c9cd9d0fe.png", alt: "The Relationship School" },
-    { src: "/lovable-uploads/a1a46ffc-9434-44e1-a32b-ee125c92400a.png", alt: "VMIX" },
-    { src: "/lovable-uploads/ba709d68-f986-44b2-a8e2-0aadaee4d670.png", alt: "quoteThat!" },
-    { src: "/lovable-uploads/baf3f2af-acfb-4248-9736-c722070c14d6.png", alt: "ECPAC Early Childhood Partnership of Adams County" }
+    { src: "/lovable-uploads/client-logo-arden-kaywin.png", alt: "Arden Kaywin Vocal Studio" },
+    { src: "/lovable-uploads/client-logo-blind-cafe.png", alt: "The Blind Cafe" },
+    { src: "/lovable-uploads/client-logo-center-sustainable-energy.png", alt: "Center for Sustainable Energy California" },
+    { src: "/lovable-uploads/client-logo-earthaven-ecovillage.png", alt: "Earthaven Ecovillage" },
+    { src: "/lovable-uploads/client-logo-jeff-paige.png", alt: "Jeff & Paige" },
+    { src: "/lovable-uploads/client-logo-patchwork-school.png", alt: "The Patchwork School" },
+    { src: "/lovable-uploads/client-logo-sacred-sons.png", alt: "Sacred Sons" },
+    { src: "/lovable-uploads/client-logo-transformative-solutions.png", alt: "Transformative Solutions" },
+    { src: "/lovable-uploads/client-logo-relationship-school.png", alt: "The Relationship School" },
+    { src: "/lovable-uploads/client-logo-vmix.png", alt: "VMIX" },
+    { src: "/lovable-uploads/client-logo-quotethat.png", alt: "quoteThat!" },
+    { src: "/lovable-uploads/client-logo-ecpac.png", alt: "ECPAC Early Childhood Partnership of Adams County" }
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-stone-100">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold text-stone-900 mb-4">Trusted by Organizations That Matter</h3>
+          <h3 className="text-2xl font-bold text-stone-900 mb-4">Trusted by Organizations That Make a Difference</h3>
           <p className="text-stone-600">We collaborate with mission-driven brands and changemakers</p>
         </div>
         
@@ -31,6 +31,9 @@ const ClientLogos = () => {
                   src={logo.src}
                   alt={logo.alt}
                   className="max-h-18 w-auto object-contain"
+                  loading="lazy"
+                  width={120}
+                  height={80}
                 />
               </div>
             </div>

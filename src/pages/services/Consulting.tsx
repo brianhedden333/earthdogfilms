@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Consulting = () => {
   const services = [
@@ -25,9 +27,39 @@ const Consulting = () => {
     }
   ];
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does video consulting include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our video consulting services include content strategy development, production planning and budgeting, story development, and distribution strategy to help you effectively share and amplify your video content."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need consulting if I'm hiring you for production?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Consulting is ideal for organizations who want expert guidance before committing to full production, or who need help developing their video strategy. If you're ready for production, consulting is typically included in our discovery process."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Video Consulting Services - Strategy & Planning Boulder, CO"
+        description="Expert video consulting in Boulder, Colorado. Content strategy, production planning, story development, and distribution strategy for mission-driven brands and organizations."
+        canonical="/services/consulting"
+        structuredData={faqStructuredData}
+      />
       <Navigation />
+      <Breadcrumbs />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">

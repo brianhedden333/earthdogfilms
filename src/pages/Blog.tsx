@@ -4,12 +4,20 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/data/blogPosts";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Blog = () => {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Blog - Filmmaking & Storytelling Insights"
+        description="Insights on filmmaking, documentary production, video storytelling, and the creative process from Earth Dog Films. Tips and guides for mission-driven brands."
+        canonical="/blog"
+      />
       <Navigation />
+      <Breadcrumbs />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">
@@ -40,6 +48,9 @@ const Blog = () => {
                       src={post.image}
                       alt={post.title}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      width={400}
+                      height={192}
                     />
                     <CardContent className="p-6">
                       <p className="text-sm text-stone-500 mb-2">{post.date}</p>

@@ -144,7 +144,7 @@ const Navigation = () => {
 
             <Link to="/" className="mx-4 hover:opacity-80 transition-opacity">
               <img
-                src="/lovable-uploads/82b1cca1-818a-4a01-8231-815d385e98af.png"
+                src="/lovable-uploads/earth-dog-films-logo.png"
                 alt="Earth Dog Films Logo"
                 className="h-12 w-12"
               />
@@ -175,7 +175,7 @@ const Navigation = () => {
           <div className="lg:hidden flex items-center justify-between w-full">
             <Link to="/" className="hover:opacity-80 transition-opacity">
               <img
-                src="/lovable-uploads/82b1cca1-818a-4a01-8231-815d385e98af.png"
+                src="/lovable-uploads/earth-dog-films-logo.png"
                 alt="Earth Dog Films Logo"
                 className="h-10 w-10"
               />

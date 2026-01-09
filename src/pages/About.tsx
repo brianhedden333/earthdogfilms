@@ -2,12 +2,20 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="About Earth Dog Films - Boulder Video Production Company"
+        description="Learn about Earth Dog Films, a boutique video production company founded by filmmaker Brian Hedden. Based in Boulder, Colorado, we create cinematic content for mission-driven brands."
+        canonical="/about"
+      />
       <Navigation />
-      
+      <Breadcrumbs />
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -37,10 +45,13 @@ const About = () => {
               <div className="grid md:grid-cols-3 gap-8 items-center">
                 <div className="md:col-span-1">
                   <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden">
-                    <img 
-                      src="/lovable-uploads/53fcafd1-f8cf-48f7-b59c-ffe240a967e7.png" 
+                    <img
+                      src="/lovable-uploads/brian-hedden-founder-portrait.png"
                       alt="Brian Hedden, Founder & Filmmaker at Earth Dog Films"
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      width={192}
+                      height={192}
                     />
                   </div>
                 </div>

@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Production = () => {
   const services = [
@@ -25,9 +27,39 @@ const Production = () => {
     }
   ];
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does full-service video production include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Full-service video production includes pre-production planning, location scouting, on-site production with professional crew and equipment, and production management to keep everything on schedule and budget."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a typical video production project take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Project timelines vary based on scope and complexity. A simple brand video may take 2-4 weeks, while a documentary project could span several months. We'll provide a detailed timeline during our initial consultation."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Video Production Services - Boulder, Colorado"
+        description="Full-service video production from concept to completion in Boulder, Colorado. Pre-production planning, on-site filming, location management, and production coordination for brands and documentaries."
+        canonical="/services/production"
+        structuredData={faqStructuredData}
+      />
       <Navigation />
+      <Breadcrumbs />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">

@@ -9,6 +9,8 @@ import { MapPin } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -63,8 +65,14 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title="Contact Earth Dog Films - Start Your Video Project"
+        description="Ready to create powerful video content? Contact Earth Dog Films in Boulder, Colorado for brand films, documentaries, and campaign videos. Get a free consultation today."
+        canonical="/contact"
+      />
       <Navigation />
-      
+      <Breadcrumbs />
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">

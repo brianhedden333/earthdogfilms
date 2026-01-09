@@ -4,6 +4,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { getBlogPostBySlug } from "@/data/blogPosts";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -12,7 +14,9 @@ const BlogPost = () => {
   if (!post) {
     return (
       <div className="min-h-screen bg-stone-50">
+        <SEO title="Post Not Found" noindex={true} />
         <Navigation />
+        <Breadcrumbs />
         <section className="pt-32 pb-20">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h1 className="text-4xl font-bold text-stone-900 mb-6">Post Not Found</h1>
@@ -32,9 +36,39 @@ const BlogPost = () => {
     );
   }
 
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.image,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": post.author || "Brian Hedden"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Earth Dog Films",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://earthdogfilms.com/lovable-uploads/edf-logo-2025.png"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        canonical={`/blog/${post.slug}`}
+        type="article"
+        image={post.image}
+        structuredData={articleStructuredData}
+      />
       <Navigation />
+      <Breadcrumbs />
 
       {/* Hero Section with Featured Image */}
       <section className="pt-24 pb-0">
@@ -61,6 +95,9 @@ const BlogPost = () => {
             src={post.image}
             alt={post.title}
             className="w-full h-96 object-cover rounded-lg shadow-xl mb-12"
+            loading="lazy"
+            width={1200}
+            height={384}
           />
         </div>
       </section>
