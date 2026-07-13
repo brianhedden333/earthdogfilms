@@ -60,11 +60,15 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full transition-opacity duration-1000 pointer-events-none"
         style={{ opacity: videoLoaded ? 0 : 1 }}
       >
-        <img
-          src="/lovable-uploads/hero-poster.png"
-          alt=""
-          className="w-full h-full object-cover"
-        />
+        <picture>
+          <source srcSet="/lovable-uploads/hero-poster.webp" type="image/webp" />
+          <img
+            src="/lovable-uploads/hero-poster.png"
+            alt=""
+            className="w-full h-full object-cover"
+            fetchPriority="high"
+          />
+        </picture>
       </div>
 
       {/* Overlay */}
