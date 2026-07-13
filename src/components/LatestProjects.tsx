@@ -22,11 +22,11 @@ const LatestProjects = () => {
   const projects = [
     {
       title: "Gonzales for Senate",
-      description: "A sample of short, vertical promotional documentaries intended for organic social media impact.",
+      description: "A sample of short, vertical, documentary-style promotional videos intended for organic social media impact.",
       vimeoId: "1205342921",
       customThumbnail: "/lovable-uploads/gonzales-thumb.jpg",
       subVideos: [
-        { vimeoId: "1209622639", title: "Gonzales for Senate - Vol. 3", customThumbnail: "/lovable-uploads/gonzales-sub3-thumb.jpg" },
+        { vimeoId: "1209622639", title: "Gonzales for Senate - Vol. 3", duration: "0:34", customThumbnail: "/lovable-uploads/gonzales-sub3-thumb.jpg" },
         { vimeoId: "1205342921", title: "Gonzales for Senate - Vol. 1", duration: "0:49", customThumbnail: "/lovable-uploads/gonzales-sub1-thumb.jpg" },
         { vimeoId: "1203265891", title: "Gonzales for Senate - Vol. 2", duration: "0:30", customThumbnail: "/lovable-uploads/gonzales-sub2-thumb.jpg" },
       ]
@@ -34,13 +34,16 @@ const LatestProjects = () => {
     {
       title: "Seligman for AG Commercial",
       description: "A 30-second advertisement for the David Seligman for Attorney General campaign in the 2026 Colorado Democratic Primary election.",
-      vimeoId: "1202700031"
+      vimeoId: "1202700031",
+      customThumbnail: "/lovable-uploads/seligman-thumb.jpg",
+      duration: "0:30"
     },
     {
       title: "Awaken School",
       description: "A short promotional video for the Spiritual and Successful workshop hosted by Rachael Jayne Groover and the Awaken School in Loveland, Colorado.",
       vimeoId: "1125623603",
-      customThumbnail: "/lovable-uploads/awaken-school-thumb.jpg"
+      customThumbnail: "/lovable-uploads/awaken-school-thumb.jpg",
+      duration: "1:45"
     }
   ];
 
@@ -109,6 +112,7 @@ const LatestProjects = () => {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-sans text-stone-900 mb-3">{project.title}</h3>
                   <p className="text-stone-600 leading-relaxed">{project.description}</p>
+                  {project.duration && <p className="text-sm text-stone-400 mt-2">Run time: {project.duration}</p>}
                 </CardContent>
               </div>
             </Card>

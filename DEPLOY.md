@@ -23,6 +23,15 @@ git commit -m "your message here"
 git push origin main
 ```
 
+> **Note:** Claude Code's Bash tool can't push interactively — git hangs waiting for credentials.
+> Run the push yourself in a real terminal, or type this directly in the Claude Code prompt:
+> `! git -C ~/Documents/WEBSITES/EDF push origin main`
+> macOS Keychain handles the credentials automatically.
+
+> **If the push fails with HTTP 400 / "unexpected disconnect":** the default git HTTP buffer is too small for large pushes (e.g. when new images are included). Fix it once with:
+> `! git config --global http.postBuffer 524288000`
+> Then retry the push. This setting persists globally so you only need to run it once per machine.
+
 After pushing, the GitHub Actions job takes ~1–2 minutes. Watch it at:
 https://github.com/brianhedden333/earthdogfilms/actions
 

@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Play, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import VideoLightbox from "@/components/VideoLightbox";
@@ -18,6 +18,31 @@ const Portfolio = () => {
     title: string;
   } | null>(null);
   const [isVertical, setIsVertical] = useState(false);
+  const [visibleCommercial, setVisibleCommercial] = useState(3);
+  const [visibleDocMarketing, setVisibleDocMarketing] = useState(3);
+
+  useEffect(() => {
+    if (window.innerWidth >= 768) {
+      setVisibleCommercial(6);
+      setVisibleDocMarketing(6);
+    }
+  }, []);
+
+  const handleSeeMoreCommercial = () => {
+    if (window.innerWidth >= 768) {
+      setVisibleCommercial(commercialWork.length);
+    } else {
+      setVisibleCommercial(prev => Math.min(prev + 3, commercialWork.length));
+    }
+  };
+
+  const handleSeeMoreDocMarketing = () => {
+    if (window.innerWidth >= 768) {
+      setVisibleDocMarketing(documentaryMarketingWork.length);
+    } else {
+      setVisibleDocMarketing(prev => Math.min(prev + 3, documentaryMarketingWork.length));
+    }
+  };
   const [subOverlayOpen, setSubOverlayOpen] = useState(false);
   const [subOverlayProject, setSubOverlayProject] = useState<{
     title: string;
@@ -30,6 +55,7 @@ const Portfolio = () => {
       title: "Seligman for AG Commercial",
       description: "A 30-second advertisement for the David Seligman for Attorney General campaign in the 2026 Colorado Democratic Primary election.",
       vimeoId: "1202700031",
+      customThumbnail: "/lovable-uploads/seligman-thumb.jpg",
       duration: "0:30"
     },
     {
@@ -87,11 +113,11 @@ const Portfolio = () => {
   const documentaryMarketingWork = [
     {
       title: "Gonzales for Senate",
-      description: "A sample of short, vertical promotional documentaries intended for organic social media impact.",
+      description: "A sample of short, vertical, documentary-style promotional videos intended for organic social media impact.",
       vimeoId: "1205342921",
       customThumbnail: "/lovable-uploads/gonzales-thumb.jpg",
       subVideos: [
-        { vimeoId: "1209622639", title: "Gonzales for Senate - Vol. 3", customThumbnail: "/lovable-uploads/gonzales-sub3-thumb.jpg" },
+        { vimeoId: "1209622639", title: "Gonzales for Senate - Vol. 3", duration: "0:34", customThumbnail: "/lovable-uploads/gonzales-sub3-thumb.jpg" },
         { vimeoId: "1205342921", title: "Gonzales for Senate - Vol. 1", duration: "0:49", customThumbnail: "/lovable-uploads/gonzales-sub1-thumb.jpg" },
         { vimeoId: "1203265891", title: "Gonzales for Senate - Vol. 2", duration: "0:30", customThumbnail: "/lovable-uploads/gonzales-sub2-thumb.jpg" },
       ]
@@ -562,7 +588,7 @@ const Portfolio = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {commercialWork.map((project, index) => (
+            {commercialWork.slice(0, visibleCommercial).map((project, index) => (
               <Card key={index} className="group cursor-pointer hover:shadow-xl transition-all duration-300 border-none overflow-hidden">
                 <div onClick={() => handleVideoClick(project)}>
                   <div className="relative">
@@ -589,6 +615,13 @@ const Portfolio = () => {
               </Card>
             ))}
           </div>
+          {visibleCommercial < commercialWork.length && (
+            <div className="text-center mt-8">
+              <button onClick={handleSeeMoreCommercial} className="text-sm text-red-600 hover:text-red-700">
+                see more
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -604,7 +637,7 @@ const Portfolio = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {documentaryMarketingWork.map((project, index) => (
+            {documentaryMarketingWork.slice(0, visibleDocMarketing).map((project, index) => (
               <Card key={index} className="group cursor-pointer hover:shadow-xl transition-all duration-300 border-none overflow-hidden">
                 <div onClick={() => handleVideoClick(project)}>
                   <div className="relative">
@@ -631,6 +664,13 @@ const Portfolio = () => {
               </Card>
             ))}
           </div>
+          {visibleDocMarketing < documentaryMarketingWork.length && (
+            <div className="text-center mt-8">
+              <button onClick={handleSeeMoreDocMarketing} className="text-sm text-red-600 hover:text-red-700">
+                see more
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
