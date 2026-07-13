@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
 import ServicesPreview from "@/components/ServicesPreview";
+import LatestProjects from "@/components/LatestProjects";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -16,12 +17,60 @@ const Index = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Earth Dog Films?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Earth Dog Films is an award-winning video production company based in Boulder, Colorado, specializing in documentary marketing, brand films, and cinematic storytelling for mission-driven organizations, nonprofits, and changemakers across Colorado and nationally."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of video does Earth Dog Films produce?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Earth Dog Films produces documentary marketing videos, commercial brand films, political campaign ads, feature documentaries, promotional videos, music videos, aerial drone footage, and short-form social media content."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Earth Dog Films located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Earth Dog Films is based in Boulder, Colorado, and serves clients throughout the Denver metro area, statewide across Colorado, and nationally."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes Earth Dog Films different from other video production companies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Earth Dog Films takes a story-first approach, combining documentary depth with commercial polish. We specialize in working with purpose-driven brands, nonprofits, educators, and political campaigns to create emotionally resonant content that connects with audiences and drives real-world impact."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I hire Earth Dog Films for a video project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can reach Earth Dog Films through the contact form at earthdogfilms.com/contact to discuss your project vision, timeline, and budget. We work with clients across Colorado and throughout the United States."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
       <SEO
         title="Earth Dog Films - Cinematic Storytelling for Brands and Movements"
         description="Earth Dog Films creates powerful, emotionally resonant video content for mission-driven brands, educators, and changemakers in Boulder, Colorado. Award-winning documentary and brand film production."
         canonical="/"
+        structuredData={faqStructuredData}
       />
       <Navigation />
       <Hero />
@@ -38,6 +87,8 @@ const Index = () => {
         </div>
       </section>
 
+      <LatestProjects />
+
       {/* Brand Reel Section */}
       <section id="brand-reel" className="py-20 bg-stone-100">
         <div className="max-w-6xl mx-auto px-6">
@@ -47,7 +98,7 @@ const Index = () => {
               See how we bring stories to life through our brand reel
             </p>
           </div>
-          
+
           <div className="relative max-w-4xl mx-auto">
             <div className="aspect-video rounded-lg overflow-hidden">
               <iframe

@@ -2,8 +2,33 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 
 const Hero = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin !== 'https://player.vimeo.com') return;
+      try {
+        const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+        if (data.event === 'ready') {
+          iframeRef.current?.contentWindow?.postMessage(
+            JSON.stringify({ method: 'addEventListener', value: 'play' }),
+            'https://player.vimeo.com'
+          );
+        }
+        if (data.event === 'play') {
+          setVideoLoaded(true);
+          window.removeEventListener('message', handleMessage);
+        }
+      } catch {}
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
+
   const scrollToBrandReel = () => {
     const brandReelSection = document.getElementById('brand-reel');
     if (brandReelSection) {
@@ -13,22 +38,35 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video */}
+      {/* Background Video (bottom layer) */}
       <div className="absolute inset-0 w-full h-full">
         <iframe
+          ref={iframeRef}
           src="https://player.vimeo.com/video/336916761?autoplay=1&loop=1&muted=1&background=1&controls=0"
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover"
-          style={{ 
+          style={{
             width: '100vw',
-            height: '56.25vw', // 16:9 aspect ratio
+            height: '56.25vw',
             minHeight: '100vh',
-            minWidth: '177.78vh', // 16:9 aspect ratio
+            minWidth: '177.78vh',
           }}
           allow="autoplay; fullscreen"
           title="Earth Dog Films Hero Video"
         />
       </div>
-      
+
+      {/* Poster image — sits above video, fades out to reveal it */}
+      <div
+        className="absolute inset-0 w-full h-full transition-opacity duration-1000 pointer-events-none"
+        style={{ opacity: videoLoaded ? 0 : 1 }}
+      >
+        <img
+          src="/lovable-uploads/hero-poster.png"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
