@@ -512,7 +512,7 @@ const Portfolio = () => {
       <Breadcrumbs />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-stone-900 text-white">
+      <section className="pt-32 pb-16 bg-stone-900 text-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Portfolio</h1>
           <p className="text-xl text-stone-300 max-w-3xl mx-auto leading-relaxed">
@@ -528,8 +528,7 @@ const Portfolio = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">Documentary</h2>
             <p className="text-lg text-stone-600 max-w-3xl mx-auto">
-              Our roots are in documentary. We produce films that inform,
-              mobilize, and deepen impact.
+              Our roots are in documentary. Authenticity and integrity are key ingredients to everything we make.
             </p>
           </div>
 

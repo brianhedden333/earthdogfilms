@@ -17,7 +17,7 @@ const About = () => {
       <Breadcrumbs />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-stone-900 text-white">
+      <section className="pt-32 pb-16 bg-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Storytelling with Soul</h1>
         </div>

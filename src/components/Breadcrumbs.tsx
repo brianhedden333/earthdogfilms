@@ -53,37 +53,11 @@ const Breadcrumbs = () => {
   };
 
   return (
-    <>
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
-      <nav aria-label="Breadcrumb" className="py-3 px-6 bg-stone-100">
-        <ol className="flex items-center space-x-2 max-w-6xl mx-auto text-sm">
-          {breadcrumbs.map((item, index) => (
-            <li key={item.path} className="flex items-center">
-              {index > 0 && (
-                <ChevronRight className="w-4 h-4 mx-2 text-stone-400" />
-              )}
-              {index === breadcrumbs.length - 1 ? (
-                <span className="text-stone-600 font-medium" aria-current="page">
-                  {item.name}
-                </span>
-              ) : (
-                <Link
-                  to={item.path}
-                  className="text-red-600 hover:text-red-700 hover:underline flex items-center"
-                >
-                  {index === 0 && <Home className="w-4 h-4 mr-1" />}
-                  {item.name}
-                </Link>
-              )}
-            </li>
-          ))}
-        </ol>
-      </nav>
-    </>
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
+    </Helmet>
   );
 };
 

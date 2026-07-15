@@ -24,7 +24,6 @@ const Footer = () => {
               <Link to="/portfolio" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Portfolio</Link>
               <Link to="/about" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">About</Link>
               <Link to="/services" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Services</Link>
-              <Link to="/blog" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Blog</Link>
               <Link to="/contact" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
@@ -36,7 +35,7 @@ const Footer = () => {
         
         <div className="border-t border-stone-700 mt-12 pt-8 text-center">
           <p className="text-stone-500">
-            © 2024 Earth Dog Films. All rights reserved.
+            © 2026 Earth Dog Films. All rights reserved.
           </p>
         </div>
       </div>

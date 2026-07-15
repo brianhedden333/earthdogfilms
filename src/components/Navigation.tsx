@@ -52,7 +52,6 @@ const Navigation = () => {
 
   const rightNavItems = [
     { name: 'About', path: '/about' },
-    { name: 'Blog', path: '/blog' },
   ];
 
   // Custom Google Icon Component
@@ -77,27 +76,45 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center py-4">
-          {/* Left: Social Media Icons */}
-          <div className="hidden lg:flex items-center gap-4">
-            {socialLinks.map((social) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-red-400 transition-colors"
-                  aria-label={social.name}
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              );
-            })}
+          {/* Left: Logo */}
+          <div className="hidden lg:flex items-center">
+            <Link to="/" className="hover:opacity-80 transition-opacity">
+              <img
+                src="/lovable-uploads/earth-dog-films-logo.png"
+                alt="Earth Dog Films Logo"
+                className="h-12 w-12"
+              />
+            </Link>
           </div>
 
-          {/* Center: Navigation Items with Logo */}
+          {/* Center: Navigation Items */}
           <div className="hidden lg:flex items-center gap-8">
+            {leftNavItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={scrollToTop}
+                className={`text-white hover:text-red-400 transition-colors font-medium ${
+                  location.pathname === item.path ? 'text-red-400' : ''
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+
+            {rightNavItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={scrollToTop}
+                className={`text-white hover:text-red-400 transition-colors font-medium ${
+                  location.pathname === item.path ? 'text-red-400' : ''
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+
             {/* Services Dropdown */}
             <div
               className="relative"
@@ -129,46 +146,34 @@ const Navigation = () => {
               )}
             </div>
 
-            {leftNavItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                onClick={scrollToTop}
-                className={`text-white hover:text-red-400 transition-colors font-medium ${
-                  location.pathname === item.path ? 'text-red-400' : ''
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-
-            <Link to="/" className="mx-4 hover:opacity-80 transition-opacity">
-              <img
-                src="/lovable-uploads/earth-dog-films-logo.png"
-                alt="Earth Dog Films Logo"
-                className="h-12 w-12"
-              />
+            <Link
+              to="/contact"
+              onClick={scrollToTop}
+              className={`text-white hover:text-red-400 transition-colors font-medium ${
+                location.pathname === '/contact' ? 'text-red-400' : ''
+              }`}
+            >
+              Contact
             </Link>
-
-            {rightNavItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                onClick={scrollToTop}
-                className={`text-white hover:text-red-400 transition-colors font-medium ${
-                  location.pathname === item.path ? 'text-red-400' : ''
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
           </div>
 
-          {/* Right: Contact Button */}
-          <div className="hidden lg:block">
-            <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
-              <Link to="/contact" onClick={scrollToTop}>Contact</Link>
-            </Button>
+          {/* Right: Social Icons */}
+          <div className="hidden lg:flex items-center gap-4">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-red-400 transition-colors"
+                  aria-label={social.name}
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              );
+            })}
           </div>
 
           {/* Mobile: Logo and Menu Button */}
