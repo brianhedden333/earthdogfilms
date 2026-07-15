@@ -18,6 +18,7 @@ import PostProduction from "./pages/services/PostProduction";
 import Directing from "./pages/services/Directing";
 import AerialDrone from "./pages/services/AerialDrone";
 import Consulting from "./pages/services/Consulting";
+import BoulderVideoProduction from "./pages/BoulderVideoProduction";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/boulder-video-production" element={<BoulderVideoProduction />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
