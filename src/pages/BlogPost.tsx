@@ -1,11 +1,30 @@
+import { ReactNode } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import Navigation from "@/components/Navigation";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getBlogPostBySlug } from "@/data/blogPosts";
-import { Button } from "@/components/ui/button";
+import Reveal from "@/components/Reveal";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import CTABand from "@/components/CTABand";
+import { getBlogPostBySlug } from "@/data/blogPosts";
+
+const backLink =
+  "inline-flex min-h-[44px] items-center text-[15px] text-ink-3 transition-colors hover:text-brand-text";
+
+// Inline [text](/url) links inside a paragraph.
+const withLinks = (text: string): ReactNode[] => {
+  const parts = text.split(/\[([^\]]+)\]\(([^)]+)\)/g);
+  return parts.map((part, i) => {
+    if (i % 3 === 1) {
+      return (
+        <Link key={i} to={parts[i + 1]} className="text-brand-text underline underline-offset-2 hover:text-brand">
+          {part}
+        </Link>
+      );
+    }
+    return i % 3 === 2 ? null : part;
+  });
+};
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -13,25 +32,21 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-stone-50">
+      <div className="flex min-h-screen w-full flex-col bg-paper font-sans leading-[normal] text-ink">
         <SEO title="Post Not Found" noindex={true} />
-        <Navigation />
-        <Breadcrumbs />
-        <section className="pt-32 pb-20">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h1 className="text-4xl font-bold text-stone-900 mb-6">Post Not Found</h1>
-            <p className="text-lg text-stone-600 mb-8">
-              Sorry, we couldn't find the blog post you're looking for.
-            </p>
-            <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
-              <Link to="/blog">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
-              </Link>
-            </Button>
-          </div>
-        </section>
-        <Footer />
+        <Header />
+        <main className="flex flex-auto flex-col justify-center px-[6vw] py-24">
+          <h1 className="m-0 font-display text-[clamp(52px,7vw,112px)] font-normal leading-[0.98] tracking-[-0.02em]">
+            Post not found
+          </h1>
+          <p className="m-0 mt-6 text-xl leading-[1.55] text-ink-3">
+            Sorry, we couldn't find the blog post you're looking for.
+          </p>
+          <Link to="/blog" className={`mt-6 self-start ${backLink}`}>
+            ← Back to blog
+          </Link>
+        </main>
+        <Footer border />
       </div>
     );
   }
@@ -57,8 +72,10 @@ const BlogPost = () => {
     }
   };
 
+  const lines = post.content.split("\n").filter((line) => line.trim());
+
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="w-full bg-paper font-sans leading-[normal] text-ink">
       <SEO
         title={post.title}
         description={post.excerpt}
@@ -67,130 +84,80 @@ const BlogPost = () => {
         image={post.image}
         structuredData={articleStructuredData}
       />
-      <Navigation />
+      <Header />
       <Breadcrumbs />
 
-      {/* Hero Section with Featured Image */}
-      <section className="pt-24 pb-0">
-        <div className="max-w-5xl mx-auto px-6">
-          <Link
-            to="/blog"
-            className="inline-flex items-center text-stone-600 hover:text-red-600 transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Blog
+      <main>
+        <section className="px-[6vw] pb-12 pt-10 min-[761px]:pt-16">
+          <Link to="/blog" className={backLink}>
+            ← All posts
           </Link>
+          <div className="load-fade mt-8 text-[13px] uppercase tracking-[0.12em] text-brand-text [--load-delay:0s]">{post.date}</div>
+          <h1 className="m-0 mt-4 max-w-[1200px] font-display text-[clamp(48px,6.4vw,104px)] font-normal leading-[0.98] tracking-[-0.02em]">
+            <span className="load-line">
+              <span className="load-up">{post.title}</span>
+            </span>
+          </h1>
+          {post.author && <p className="load-fade m-0 mt-6 text-[15px] text-ink-3">By {post.author}</p>}
+        </section>
 
-          <div className="mb-8">
-            <p className="text-sm text-stone-500 mb-4">{post.date}</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
-              {post.title}
-            </h1>
-            {post.author && (
-              <p className="text-lg text-stone-600">By {post.author}</p>
-            )}
-          </div>
+        <section className="px-[6vw] pb-[72px] min-[761px]:pb-24">
+          <Reveal delay={350}>
+            <div className="reveal-img overflow-hidden rounded-md">
+              <img
+                src={post.image}
+                alt=""
+                className="block aspect-[4/3] w-full object-cover min-[761px]:aspect-[21/9]"
+              />
+            </div>
+          </Reveal>
+        </section>
 
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full h-96 object-cover rounded-lg shadow-xl mb-12"
-            loading="lazy"
-            width={1200}
-            height={384}
-          />
-        </div>
-      </section>
+        <article className="load-fade mx-auto max-w-[760px] px-[6vw] pb-[96px] [--load-delay:0.7s] min-[761px]:px-0 min-[761px]:pb-[140px]">
+          {lines.map((line, index) => {
+            const text = line.trim();
+            if (text.startsWith("# ")) {
+              // The post title is already the page's h1.
+              if (text.slice(2) === post.title) return null;
+              return (
+                <h2 key={index} className="m-0 mb-4 mt-14 font-display text-[40px] font-normal leading-[1.1]">
+                  {text.slice(2)}
+                </h2>
+              );
+            }
+            if (text.startsWith("## ")) {
+              return (
+                <h2 key={index} className="m-0 mb-4 mt-14 font-display text-[40px] font-normal leading-[1.1]">
+                  {text.slice(3)}
+                </h2>
+              );
+            }
+            if (text.startsWith("### ")) {
+              return (
+                <h3 key={index} className="m-0 mb-2 mt-9 font-display text-[28px] font-normal leading-[1.2]">
+                  {text.slice(4)}
+                </h3>
+              );
+            }
+            if (text.startsWith("**") && text.endsWith("**")) {
+              return (
+                <p key={index} className="m-0 mt-5 text-lg font-semibold leading-[1.7] text-ink">
+                  {text.replace(/\*\*/g, "")}
+                </p>
+              );
+            }
+            return (
+              <p key={index} className="m-0 mt-5 text-lg leading-[1.7] text-ink-2">
+                {withLinks(text)}
+              </p>
+            );
+          })}
+        </article>
 
-      {/* Blog Content */}
-      <section className="pb-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <article className="prose prose-lg prose-stone max-w-none">
-            {post.content.split('\n').map((paragraph, index) => {
-              // Handle headers
-              if (paragraph.startsWith('# ')) {
-                return (
-                  <h1 key={index} className="text-4xl font-bold text-stone-900 mt-12 mb-6">
-                    {paragraph.replace('# ', '')}
-                  </h1>
-                );
-              }
-              if (paragraph.startsWith('## ')) {
-                return (
-                  <h2 key={index} className="text-3xl font-bold text-stone-900 mt-10 mb-4">
-                    {paragraph.replace('## ', '')}
-                  </h2>
-                );
-              }
-              if (paragraph.startsWith('### ')) {
-                return (
-                  <h3 key={index} className="text-2xl font-bold text-stone-900 mt-8 mb-3">
-                    {paragraph.replace('### ', '')}
-                  </h3>
-                );
-              }
-
-              // Handle bold text
-              if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
-                return (
-                  <p key={index} className="font-bold text-stone-900 mt-4">
-                    {paragraph.replace(/\*\*/g, '')}
-                  </p>
-                );
-              }
-
-              // Handle links [text](/url)
-              const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-              if (linkRegex.test(paragraph)) {
-                const parts = paragraph.split(linkRegex);
-                return (
-                  <p key={index} className="text-stone-700 leading-relaxed mb-4">
-                    {parts.map((part, i) => {
-                      if (i % 3 === 1) {
-                        return (
-                          <Link
-                            key={i}
-                            to={parts[i + 1]}
-                            className="text-red-600 hover:text-red-700 underline"
-                          >
-                            {part}
-                          </Link>
-                        );
-                      }
-                      if (i % 3 === 2) return null;
-                      return part;
-                    })}
-                  </p>
-                );
-              }
-
-              // Regular paragraphs
-              if (paragraph.trim() && !paragraph.startsWith('#')) {
-                return (
-                  <p key={index} className="text-stone-700 leading-relaxed mb-4">
-                    {paragraph}
-                  </p>
-                );
-              }
-
-              return null;
-            })}
-          </article>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-20 bg-stone-900 text-white">
-        <div className="max-w-4xl mx-auto text-center px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Tell Your Story?</h2>
-          <p className="text-xl text-stone-300 mb-10">
-            Let's create something meaningful together
-          </p>
-          <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3">
-            <Link to="/contact">Get Started</Link>
-          </Button>
-        </div>
-      </section>
+        <Reveal>
+          <CTABand title="Ready to tell your story?" cta="Start a project" layout="center" />
+        </Reveal>
+      </main>
 
       <Footer />
     </div>

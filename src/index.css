@@ -7,8 +7,18 @@
 
 @layer base {
   :root {
-    --background: 44 22% 97%;
-    --foreground: 25 5% 15%;
+    /* Redesign tokens (see tailwind.config.ts for the matching utilities) */
+    --red: #DC2626;
+    --red-text: #B91C1C;
+    --red-on-dark: #F05252;
+    --ink: #1A1917;
+    --paper: #FAFAF8;
+    --paper-2: #F0EFEB;
+    --line: #E2E1DC;
+    --line-2: #D6D4CC;
+
+    --background: 60 17% 98%;
+    --foreground: 40 6% 10%;
 
     --card: 0 0% 100%;
     --card-foreground: 25 5% 15%;
@@ -97,22 +107,13 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-  
-  .font-galano-extralight {
-    font-family: 'Galano Grotesque', sans-serif;
-    font-weight: 100;
-  }
-  
-  .font-galano-alt-extralight {
-    font-family: 'Galano Grotesque Alt', 'Galano Grotesque', sans-serif;
-    font-weight: 100;
+
+  :focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
   }
 }
 
@@ -145,5 +146,164 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Header nav hover: the label rolls up and is replaced by a red copy while a hairline
+   draws in underneath; the Contact pill fills from below. Pure CSS. */
+@layer components {
+  .nav-link,
+  .nav-pill {
+    --nav-ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+    position: relative;
+  }
+
+  .nav-roll {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    line-height: 1.5;
+  }
+  .nav-roll > span {
+    display: block;
+    transition: transform 0.5s var(--nav-ease);
+  }
+  .nav-roll > span + span {
+    position: absolute;
+    inset: 0;
+    transform: translateY(110%);
+  }
+  .nav-link .nav-roll > span + span {
+    color: var(--red-text);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 9px;
+    height: 1.5px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--nav-ease);
+  }
+  .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .nav-pill {
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .nav-pill::before {
+    content: "";
+    position: absolute;
+    left: -10%;
+    right: -10%;
+    top: 0;
+    height: 220%;
+    border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+    background: var(--nav-fill, var(--red));
+    transform: translateY(101%);
+    transition: transform 0.55s var(--nav-ease);
+    z-index: -1;
+  }
+
+  @media (hover: hover) {
+    .nav-link:hover .nav-roll > span:first-child,
+    .nav-pill:hover .nav-roll > span:first-child {
+      transform: translateY(-110%);
+    }
+    .nav-link:hover .nav-roll > span + span,
+    .nav-pill:hover .nav-roll > span + span {
+      transform: none;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    /* Travel past the top so the curved leading edge ends up outside the pill. */
+    .nav-pill:hover::before {
+      transform: translateY(-35%);
+    }
+  }
+  .nav-link:focus-visible .nav-roll > span:first-child,
+  .nav-pill:focus-visible .nav-roll > span:first-child {
+    transform: translateY(-110%);
+  }
+  .nav-link:focus-visible .nav-roll > span + span,
+  .nav-pill:focus-visible .nav-roll > span + span {
+    transform: none;
+  }
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .nav-pill:focus-visible::before {
+    transform: translateY(-35%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-roll > span,
+    .nav-link::after,
+    .nav-pill::before {
+      transition: none;
+    }
+  }
+}
+
+/* Inner-page motion: a load animation for page headers and scroll reveals (see Reveal.tsx).
+   Everything is visible by default; the hidden starting states only apply when motion is allowed. */
+@keyframes pageLineUp {
+  from { transform: translateY(110%); }
+  to { transform: none; }
+}
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* .load-line clips its .load-up child while it slides up into place. */
+  .load-line {
+    display: block;
+    overflow: hidden;
+    padding: 0.1em 0 0.08em;
+    margin: -0.1em 0 -0.08em;
+  }
+  .load-up {
+    display: block;
+    animation: pageLineUp 1s cubic-bezier(0.2, 0.7, 0.1, 1) 0.1s both;
+  }
+  .load-fade {
+    animation: pageFade 0.8s ease var(--load-delay, 0.4s) both;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(44px);
+    transition:
+      opacity 0.8s ease var(--reveal-delay, 0ms),
+      transform 0.9s cubic-bezier(0.2, 0.7, 0.1, 1) var(--reveal-delay, 0ms);
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal .reveal-img {
+    clip-path: inset(12% 9% 12% 9% round 6px);
+    transition: clip-path 1.2s cubic-bezier(0.2, 0.7, 0.1, 1) var(--reveal-delay, 0ms);
+  }
+  .reveal .reveal-img img {
+    scale: 1.08;
+    transition: scale 1.4s cubic-bezier(0.2, 0.7, 0.1, 1) var(--reveal-delay, 0ms), transform 0.5s;
+  }
+  .reveal.is-in .reveal-img {
+    clip-path: inset(0 0 0 0 round 6px);
+  }
+  .reveal.is-in .reveal-img img {
+    scale: 1;
   }
 }

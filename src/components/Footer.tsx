@@ -1,44 +1,57 @@
-
 import { Link } from "react-router-dom";
+import { cn } from "@/lib/utils";
+import { site } from "@/data/site";
 
-const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+interface FooterProps {
+  // "dark" sits inside the homepage's final charcoal section.
+  variant?: "light" | "dark";
+  border?: boolean;
+}
+
+const pages = [
+  { label: "Portfolio", to: "/portfolio" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
+
+const Footer = ({ variant = "light", border = false }: FooterProps) => {
+  const dark = variant === "dark";
+  const year = new Date().getFullYear();
+  const linkClass = cn(
+    "inline-flex min-h-[44px] items-center transition-colors",
+    dark ? "hover:text-paper" : "hover:text-brand-text",
+  );
 
   return (
-    <footer className="bg-stone-900 text-white py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12">
-          <div>
-            <h3 className="text-2xl font-bold mb-4">Earth Dog Films</h3>
-            <p className="text-stone-400 leading-relaxed">
-              Cinematic storytelling for brands and movements. 
-              Creating emotionally resonant video content that matters.
-            </p>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-medium mb-4">Navigation</h4>
-            <div className="space-y-2">
-              <Link to="/portfolio" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Portfolio</Link>
-              <Link to="/about" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">About</Link>
-              <Link to="/services" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Services</Link>
-              <Link to="/contact" onClick={scrollToTop} className="block text-stone-400 hover:text-white transition-colors">Contact</Link>
-            </div>
-          </div>
-          
-          <div>
-            <Link to="/contact" onClick={scrollToTop} className="text-lg font-medium hover:text-red-400 transition-colors">Connect</Link>
-          </div>
-        </div>
-        
-        <div className="border-t border-stone-700 mt-12 pt-8 text-center">
-          <p className="text-stone-500">
-            © 2026 Earth Dog Films. All rights reserved.
-          </p>
-        </div>
-      </div>
+    <footer
+      className={cn(
+        "flex flex-wrap items-center justify-between gap-x-6 gap-y-2 text-sm",
+        dark
+          ? "border-t border-[#34322E] py-4 text-[#A3A098]"
+          : "px-[6vw] py-7 text-ink-4",
+        !dark && border && "border-t border-line",
+      )}
+    >
+      <span>
+        {dark ? `© ${year} ${site.name} · Boulder, CO` : `© ${year} ${site.name}. All rights reserved.`}
+      </span>
+      <span className="flex flex-wrap gap-x-6">
+        {pages.map((p) => (
+          <Link key={p.to} to={p.to} className={linkClass}>
+            {p.label}
+          </Link>
+        ))}
+        {dark && (
+          <>
+            <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              Instagram
+            </a>
+            <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              Facebook
+            </a>
+          </>
+        )}
+      </span>
     </footer>
   );
 };

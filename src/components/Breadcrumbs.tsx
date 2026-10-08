@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronRight, Home } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
 interface BreadcrumbItem {
@@ -12,12 +11,7 @@ const routeNames: Record<string, string> = {
   'portfolio': 'Portfolio',
   'about': 'About',
   'services': 'Services',
-  'production': 'Production',
-  'cinematography': 'Cinematography',
-  'post-production': 'Post-Production',
-  'directing': 'Directing',
-  'aerial-drone': 'Aerial & Drone',
-  'consulting': 'Consulting',
+  'boulder-video-production': 'Boulder Video Production',
   'blog': 'Blog',
   'contact': 'Contact'
 };

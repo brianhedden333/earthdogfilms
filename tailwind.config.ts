@@ -20,9 +20,30 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'galano-extralight': ['Galano Grotesque', 'sans-serif'],
+				sans: ['Geist', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+				display: ['"Instrument Serif"', 'Georgia', 'serif'],
 			},
 			colors: {
+				brand: {
+					DEFAULT: '#DC2626',
+					text: '#B91C1C',
+					'on-dark': '#F05252'
+				},
+				ink: {
+					DEFAULT: '#1A1917',
+					2: '#3A3934',
+					3: '#4A4943',
+					4: '#6B6A63',
+					dim: '#B4B2AA'
+				},
+				paper: {
+					DEFAULT: '#FAFAF8',
+					2: '#F0EFEB'
+				},
+				line: {
+					DEFAULT: '#E2E1DC',
+					2: '#D6D4CC'
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

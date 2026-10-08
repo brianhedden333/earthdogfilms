@@ -1,5 +1,5 @@
 
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 
 interface VideoLightboxProps {
@@ -30,9 +30,11 @@ const VideoLightbox = ({ isOpen, onClose, vimeoId, youtubeId, title, vertical = 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className={`${vertical ? "max-w-sm" : "max-w-4xl"} w-full p-0 bg-black border-none`}>
+        <DialogTitle className="sr-only">{title}</DialogTitle>
         <div className="relative">
           <button
             onClick={onClose}
+            aria-label="Close video"
             className="absolute -top-12 right-0 z-50 p-2 text-white hover:text-gray-300 transition-colors"
           >
             <X className="w-6 h-6" />
