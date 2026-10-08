@@ -31,9 +31,11 @@ const About = () => (
         <Reveal delay={350}>
           <div className="reveal-img overflow-hidden rounded-md">
             <img
-              src="/img/about-hero.webp"
-              alt="Children in butterfly wings walking through a meadow"
-              className="block aspect-[4/3] w-full object-cover object-[50%_45%] min-[761px]:aspect-[21/8]"
+              src="/img/about-hero-2400.webp"
+              srcSet="/img/about-hero-1200.webp 1200w, /img/about-hero-2400.webp 2400w"
+              sizes="88vw"
+              alt="The Earth Dog Films crew on location outside a columned stone building, with a cinema camera, reflector and boom mic"
+              className="block aspect-[4/3] w-full object-cover object-[48%_10%] min-[761px]:aspect-[21/8]"
             />
           </div>
         </Reveal>
@@ -70,13 +72,15 @@ const About = () => (
           <div className={`mb-4 ${eyebrow}`}>Founder &amp; Director</div>
           <h2 className="m-0 font-display text-[clamp(48px,12vw,64px)] font-normal leading-none">Brian Hedden</h2>
           <p className="m-0 mt-7 max-w-[600px] text-lg leading-[1.7] text-ink-2">
-            An NYU-trained filmmaker, Brian founded Earth Dog Films more than sixteen years ago. He produced the
-            award-winning investigative documentary <em>Fracking the System</em>, which took on Colorado’s oil and gas
-            industry.
+            Brian has spent more than sixteen years making films about the issues that shape people’s lives.
+            NYU-trained, he founded Earth Dog Films to tell stories with cinematic craft and a clear purpose. He
+            produced the award-winning investigative documentary <em>Fracking the System</em>, which held Colorado’s
+            oil and gas industry to account.
           </p>
           <p className="m-0 mt-5 max-w-[600px] text-lg leading-[1.7] text-ink-2">
-            A background in political consulting and teaching means he understands what a campaign or a mission needs
-            a film to do, not just how it should look.
+            Before and alongside filmmaking, Brian worked in civic engagement and taught in the classroom. That
+            experience shows up in every project. He knows a film has to persuade, teach or move someone to act, and
+            he builds the story around that goal from the first conversation.
           </p>
         </Reveal>
       </section>
