@@ -7,7 +7,7 @@ import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Picture from "@/components/Picture";
 import VideoLightbox from "@/components/VideoLightbox";
-import { getProject, projectPages, projectThumbnail, videoEmbedUrl, SubVideo } from "@/data/site";
+import { caseStudiesLive, getProject, projectPages, projectThumbnail, videoEmbedUrl, SubVideo } from "@/data/site";
 
 // Unfilled copy shows as a [bracketed] placeholder while developing and is left out of the live site.
 const placeholder = (value: string | undefined, label: string) => value ?? (import.meta.env.DEV ? label : undefined);
@@ -22,7 +22,9 @@ const Project = () => {
 
   useEffect(() => setPlaying(false), [slug]);
 
-  if (!project || !project.hasPage) return <Navigate to="/portfolio" replace />;
+  // Unpublished case studies stay reachable on the dev server so they can be worked on.
+  const published = caseStudiesLive || import.meta.env.DEV;
+  if (!project || !project.hasPage || !published) return <Navigate to="/portfolio" replace />;
 
   const { detail } = project;
   const embed = videoEmbedUrl(project);

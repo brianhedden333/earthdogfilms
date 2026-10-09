@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import ProjectCard from "@/components/ProjectCard";
 import CTABand from "@/components/CTABand";
 import Reveal from "@/components/Reveal";
-import VideoLightbox from "@/components/VideoLightbox";
+import ProjectPlayer from "@/components/ProjectPlayer";
 import { categories, projects, Category, Project } from "@/data/site";
 import { portfolioStructuredData } from "@/data/portfolioStructuredData";
 
@@ -93,14 +93,7 @@ const Portfolio = () => {
 
       <Footer />
 
-      <VideoLightbox
-        isOpen={playing !== null}
-        onClose={() => setPlaying(null)}
-        vimeoId={playing?.vimeoId}
-        youtubeId={playing?.youtubeId}
-        title={playing?.title ?? ""}
-        vertical={!!playing?.subVideos}
-      />
+      <ProjectPlayer project={playing} onClose={() => setPlaying(null)} />
     </div>
   );
 };

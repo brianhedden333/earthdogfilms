@@ -20,6 +20,11 @@ export const navLinks = [
   { label: "Services", to: "/services" },
 ];
 
+// Case study pages (/portfolio/:slug) are still being written. While this is false the
+// "Case study" links are hidden everywhere and the pages only open on the dev server.
+// Set to true to publish them (and add their URLs back to public/sitemap.xml).
+export const caseStudiesLive = false;
+
 export const categories = ["Campaign", "Brand Film", "Documentary", "Music & Dance"] as const;
 export type Category = (typeof categories)[number];
 
@@ -63,6 +68,17 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "brighter-start-yes-on-1a",
+    image: "brighter-start-yes-on-1a",
+    title: "Brighter Start Boulder County - Yes on 1A",
+    category: "Campaign",
+    format: "Commercial",
+    duration: "0:30",
+    description: "A testimonial-based commercial with real parents in support of ballot measure 1A.",
+    alt: "A smiling young boy in a classroom, with a Vote Yes on 1A graphic",
+    vimeoId: "1234479701",
+  },
   {
     slug: "seligman-for-ag",
     title: "Seligman for AG",

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Project, projectMeta, projectThumbnail } from "@/data/site";
+import { Project, caseStudiesLive, projectMeta, projectThumbnail } from "@/data/site";
 import Picture from "@/components/Picture";
 
 interface ProjectCardProps {
@@ -17,6 +17,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, variant = "portfolio", className, imageWrapClassName, onPlay }: ProjectCardProps) => {
   const home = variant === "home";
   const src = projectThumbnail(project);
+  const showCaseStudy = caseStudiesLive && !!project.hasPage;
 
   return (
     <div className={className}>
@@ -60,10 +61,10 @@ const ProjectCard = ({ project, variant = "portfolio", className, imageWrapClass
         </div>
       </button>
 
-      {(!home || project.hasPage) && (
+      {(!home || showCaseStudy) && (
         <div className={cn("flex items-center gap-4 text-xs uppercase tracking-[0.12em]", home ? "mt-2" : "mt-3.5")}>
           {!home && <span className="text-brand-text">{project.category}</span>}
-          {project.hasPage && (
+          {showCaseStudy && (
             <Link
               to={`/portfolio/${project.slug}`}
               aria-label={`${project.title} case study`}

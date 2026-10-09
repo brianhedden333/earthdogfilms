@@ -10,6 +10,7 @@ import ServiceRow from "@/components/ServiceRow";
 import LogoGrid from "@/components/LogoGrid";
 import Testimonial from "@/components/Testimonial";
 import VideoLightbox from "@/components/VideoLightbox";
+import ProjectPlayer from "@/components/ProjectPlayer";
 import { site, latestProjects, processSteps, testimonials, Project } from "@/data/site";
 
 const sections = [
@@ -417,14 +418,7 @@ const Index = () => {
         vimeoId={site.reel.vimeoId}
         title="Earth Dog Films brand reel"
       />
-      <VideoLightbox
-        isOpen={playing !== null}
-        onClose={() => setPlaying(null)}
-        vimeoId={playing?.vimeoId}
-        youtubeId={playing?.youtubeId}
-        title={playing?.title ?? ""}
-        vertical={!!playing?.subVideos}
-      />
+      <ProjectPlayer project={playing} onClose={() => setPlaying(null)} />
     </div>
   );
 };
