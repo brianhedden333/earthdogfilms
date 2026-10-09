@@ -52,6 +52,8 @@ export interface Project {
   externalUrl?: string;
   // Projects with a detail page at /portfolio/:slug. Others open in the lightbox.
   hasPage?: boolean;
+  // Kept in this file but left off the site (e.g. while its video isn't ready). Remove the flag to show it.
+  hidden?: boolean;
   // Shown on the homepage "Latest projects" row, in array order.
   latest?: boolean;
   homeDescription?: string;
@@ -67,7 +69,7 @@ export interface Project {
   };
 }
 
-export const projects: Project[] = [
+const allProjects: Project[] = [
   {
     slug: "brighter-start-yes-on-1a",
     image: "brighter-start-yes-on-1a",
@@ -78,6 +80,8 @@ export const projects: Project[] = [
     description: "A testimonial-based commercial with real parents in support of ballot measure 1A.",
     alt: "A smiling young boy in a classroom, with a Vote Yes on 1A graphic",
     vimeoId: "1234479701",
+    // Hidden 2026-10-09: the Vimeo upload was stuck optimising and wouldn't play. Delete this line once it does.
+    hidden: true,
   },
   {
     slug: "seligman-for-ag",
@@ -386,6 +390,8 @@ export const projects: Project[] = [
     vimeoId: "487005355",
   },
 ];
+
+export const projects = allProjects.filter((p) => !p.hidden);
 
 export const projectMeta = (p: Project) => (p.duration ? `${p.format} · ${p.duration}` : p.format);
 
