@@ -4,6 +4,16 @@ export const portfolioStructuredData = {
   "@graph": [
     {
       "@type": "VideoObject",
+      "name": "Brighter Start Boulder County - Yes on 1A",
+      "description": "A testimonial-based commercial with real parents in support of ballot measure 1A.",
+      "thumbnailUrl": "https://earthdogfilms.com/img/brighter-start-yes-on-1a-1600.jpg",
+      "uploadDate": "2026-10-11",
+      "duration": "PT30S",
+      "embedUrl": "https://player.vimeo.com/video/1234822757",
+      "contentUrl": "https://vimeo.com/1234822757"
+    },
+    {
+      "@type": "VideoObject",
       "name": "Fracking the System: Colorado's Oil and Gas Wars — Trailer",
       "description": "Trailer for the feature documentary about environmental justice and the oil and gas industry in Colorado.",
       "thumbnailUrl": "https://img.youtube.com/vi/T-azhfhG0H0/maxresdefault.jpg",
@@ -151,26 +161,6 @@ export const portfolioStructuredData = {
       "duration": "PT1M56S",
       "embedUrl": "https://player.vimeo.com/video/363364357",
       "contentUrl": "https://vimeo.com/363364357"
-    },
-    {
-      "@type": "VideoObject",
-      "name": "Zone 7 Winter — Local Food Distribution",
-      "description": "A local food distribution company overcomes the challenges of winter in New Jersey.",
-      "thumbnailUrl": "https://vumbnail.com/19838162.jpg",
-      "uploadDate": "2012-06-01",
-      "duration": "PT5M12S",
-      "embedUrl": "https://player.vimeo.com/video/19838162",
-      "contentUrl": "https://vimeo.com/19838162"
-    },
-    {
-      "@type": "VideoObject",
-      "name": "Zone 7 Spring — Local Food Distribution",
-      "description": "A local food distribution company celebrates spring farming and renewal in New Jersey.",
-      "thumbnailUrl": "https://vumbnail.com/118621660.jpg",
-      "uploadDate": "2015-01-01",
-      "duration": "PT4M57S",
-      "embedUrl": "https://player.vimeo.com/video/118621660",
-      "contentUrl": "https://vimeo.com/118621660"
     },
     {
       "@type": "VideoObject",
