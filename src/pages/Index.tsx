@@ -134,10 +134,14 @@ const HeroVideo = () => {
         />
       )}
       <picture>
-        <source srcSet="/lovable-uploads/hero-poster.webp" type="image/webp" />
+        <source
+          type="image/webp"
+          srcSet="/img/earth-dog-films-colorado-mountain-landscape-800.webp 800w, /img/earth-dog-films-colorado-mountain-landscape-1600.webp 1600w, /img/earth-dog-films-colorado-mountain-landscape-2400.webp 2400w"
+          sizes="100vw"
+        />
         <img
-          src="/lovable-uploads/hero-poster.png"
-          alt=""
+          src="/img/earth-dog-films-colorado-mountain-landscape-1600.jpg"
+          alt="Colorado mountain valley under a cloudy sky, filmed by Earth Dog Films"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-1000"
           style={{ opacity: playing ? 0 : 1 }}
         />
