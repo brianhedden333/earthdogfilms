@@ -103,6 +103,18 @@ const allProjects: Project[] = [
     },
   },
   {
+    slug: "california-center-for-sustainable-energy",
+    image: "california-center-for-sustainable-energy",
+    title: "California Center for Sustainable Energy",
+    category: "Brand Film",
+    format: "Explainer",
+    duration: "1:32",
+    description:
+      "A short explainer video about the services provided by the sustainability non-profit based in San Diego, California.",
+    alt: "Still from the California Center for Sustainable Energy explainer",
+    vimeoId: "51964106",
+  },
+  {
     slug: "gonzales-for-senate",
     title: "Gonzales for Senate",
     category: "Campaign",
@@ -184,18 +196,6 @@ const allProjects: Project[] = [
       "An extended promotional video explaining the approach and dynamic offerings of a Boulder-based business coaching company.",
     alt: "Still from the Transformative Solutions promotional video",
     vimeoId: "270209806",
-  },
-  {
-    slug: "california-center-for-sustainable-energy",
-    image: "california-center-for-sustainable-energy",
-    title: "California Center for Sustainable Energy",
-    category: "Brand Film",
-    format: "Explainer",
-    duration: "1:32",
-    description:
-      "A short explainer video about the services provided by the sustainability non-profit based in San Diego, California.",
-    alt: "Still from the California Center for Sustainable Energy explainer",
-    vimeoId: "51964106",
   },
   {
     slug: "vmix-media",
