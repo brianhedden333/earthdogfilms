@@ -80,6 +80,7 @@ const allProjects: Project[] = [
     description: "A testimonial-based commercial with real parents in support of ballot measure 1A.",
     alt: "A smiling young boy in a classroom, with a Vote Yes on 1A graphic",
     vimeoId: "1234822757",
+    latest: true,
   },
   {
     slug: "seligman-for-ag",
@@ -131,7 +132,6 @@ const allProjects: Project[] = [
       { vimeoId: "1203265891", title: "Gonzales for Senate - Vol. 2", duration: "0:30", thumbnail: "/img/gonzales-sub2.webp" },
     ],
     hasPage: true,
-    latest: true,
   },
   {
     slug: "awaken-school",
