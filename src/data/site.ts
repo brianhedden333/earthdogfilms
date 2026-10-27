@@ -345,6 +345,7 @@ const allProjects: Project[] = [
   },
   {
     slug: "changing-of-the-light",
+    hidden: true,
     image: "changing-of-the-light",
     title: "Changing of the Light",
     category: "Music & Dance",
@@ -356,6 +357,7 @@ const allProjects: Project[] = [
   },
   {
     slug: "jeacey-adams-hooping",
+    hidden: true,
     image: "jeacey-adams-hooping",
     title: "Jeacey Adams Hooping in Paonia",
     category: "Music & Dance",
