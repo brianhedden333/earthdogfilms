@@ -12,6 +12,7 @@ import Project from "./pages/Project";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Content from "./pages/Content";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import BoulderVideoProduction from "./pages/BoulderVideoProduction";
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/content" element={<Content />} />
             <Route path="/boulder-video-production" element={<BoulderVideoProduction />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

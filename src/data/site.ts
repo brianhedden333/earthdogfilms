@@ -18,6 +18,7 @@ export const navLinks = [
   { label: "Portfolio", to: "/portfolio" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
+  { label: "Content Plans", to: "/content" },
 ];
 
 // Case study pages (/portfolio/:slug) are still being written. While this is false the
@@ -49,6 +50,8 @@ export interface Project {
   // Base name of locally optimised stills: /img/<image>-{800,1600}.webp plus a -1600.jpg fallback.
   image?: string;
   subVideos?: SubVideo[];
+  // Portrait (9:16) video: tall card and a tall player.
+  vertical?: boolean;
   externalUrl?: string;
   // Projects with a detail page at /portfolio/:slug. Others open in the lightbox.
   hasPage?: boolean;

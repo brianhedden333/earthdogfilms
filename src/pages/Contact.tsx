@@ -3,15 +3,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { FieldError, Honeypot, fieldClass, isEmail, labelClass } from "@/components/FormFields";
 import { site, testimonials, projectTypes, budgetRanges } from "@/data/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
 
-const labelClass = "flex flex-col gap-2 text-sm font-medium";
-// Border is a step darker than the mockup's #CFCDC5 so field edges meet the 3:1 contrast minimum.
-const fieldClass =
-  "min-h-[48px] w-full rounded-md border border-[#908E86] bg-paper px-4 py-3.5 text-base font-normal text-ink placeholder:text-ink-4 aria-[invalid=true]:border-brand-text";
 const dtClass = "text-[13px] uppercase tracking-[0.12em] text-ink-4";
 
 const validate = (data: FormData): Errors => {
@@ -19,17 +16,10 @@ const validate = (data: FormData): Errors => {
   const value = (key: string) => String(data.get(key) ?? "").trim();
   if (!value("name")) errors.name = "Please enter your name.";
   if (!value("email")) errors.email = "Please enter your email address.";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value("email"))) errors.email = "Please enter a valid email address.";
+  else if (!isEmail(value("email"))) errors.email = "Please enter a valid email address.";
   if (!value("message")) errors.message = "Please tell us a little about your project.";
   return errors;
 };
-
-const FieldError = ({ id, message }: { id: string; message?: string }) =>
-  message ? (
-    <span id={id} className="text-sm font-normal text-brand-text">
-      {message}
-    </span>
-  ) : null;
 
 const Contact = () => {
   const [status, setStatus] = useState<Status>("idle");
@@ -230,13 +220,7 @@ const Contact = () => {
                   <FieldError id="message-error" message={errors.message} />
                 </label>
 
-                {/* Honeypot for spam bots: hidden from people and assistive tech. */}
-                <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
-                  <label>
-                    Leave this field empty
-                    <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
-                  </label>
-                </div>
+                <Honeypot />
 
                 {status === "error" && (
                   <p role="alert" className="col-span-full m-0 text-[15px] text-brand-text">

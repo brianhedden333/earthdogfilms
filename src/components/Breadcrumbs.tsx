@@ -13,7 +13,8 @@ const routeNames: Record<string, string> = {
   'services': 'Services',
   'boulder-video-production': 'Boulder Video Production',
   'blog': 'Blog',
-  'contact': 'Contact'
+  'contact': 'Contact',
+  'content': 'Content Plans'
 };
 
 const Breadcrumbs = () => {

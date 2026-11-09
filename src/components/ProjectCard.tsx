@@ -36,7 +36,7 @@ const ProjectCard = ({ project, variant = "portfolio", className, imageWrapClass
               sizes={home ? "(max-width: 760px) 88vw, 30vw" : "(max-width: 960px) 88vw, 44vw"}
               className={cn(
                 "w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]",
-                home ? "aspect-[4/3]" : "aspect-video",
+                home ? "aspect-[4/3]" : project.vertical ? "aspect-[9/16]" : "aspect-video",
               )}
             />
           ) : (

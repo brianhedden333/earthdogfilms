@@ -67,7 +67,7 @@ const ProjectPlayer = ({ project, onClose }: ProjectPlayerProps) => {
         vimeoId={picked?.vimeoId ?? project?.vimeoId}
         youtubeId={picked ? undefined : project?.youtubeId}
         title={picked?.title ?? project?.title ?? ""}
-        vertical={!!picked}
+        vertical={!!picked || !!project?.vertical}
       />
     </>
   );
