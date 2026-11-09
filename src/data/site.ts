@@ -18,7 +18,6 @@ export const navLinks = [
   { label: "Portfolio", to: "/portfolio" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Content Plans", to: "/content" },
 ];
 
 // Case study pages (/portfolio/:slug) are still being written. While this is false the
