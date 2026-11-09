@@ -31,8 +31,8 @@ export const plans: Plan[] = [
     monthly: 1000,
     features: [
       "Half-day shoot",
-      "4 vertical videos (15–60s)",
-      "Each delivered in 2–3 hook variations and two lengths (15s and 30s)",
+      "4 vertical videos (15–30s)",
+      "Each delivered with 2–3 hook variations",
       { strong: "8–12 ready-to-post pieces", rest: ", plus a clip library" },
       "One round of revisions per video",
     ],
@@ -43,8 +43,8 @@ export const plans: Plan[] = [
     monthly: 1800,
     features: [
       "Full-day shoot",
-      "8 vertical videos (15–60s)",
-      "Each delivered in 2–3 hook variations and two lengths",
+      "8 vertical videos (15–30s)",
+      "Each delivered with 2–3 hook variations",
       { strong: "16–24 ready-to-post pieces", rest: ", plus a clip library" },
       "One round of revisions per video",
     ],
@@ -56,7 +56,7 @@ export const plans: Plan[] = [
     monthly: 3000,
     features: [
       "Two shoot days",
-      "8 vertical videos, each in 2–3 hook variations and two lengths",
+      "8 vertical videos (15–30s), each with 2–3 hook variations",
       { strong: "16–24 ready-to-post pieces", rest: ", plus a clip library" },
       "A polished 30–60s hero spot every quarter",
       "One round of revisions per video",
@@ -72,8 +72,9 @@ export const contentDay = {
   price: 1200,
   features: [
     "Half-day shoot",
-    "4 vertical videos",
-    { strong: "Delivered as 8–12 ready-to-post pieces", rest: ", plus a clip library" },
+    "4 vertical videos (15–30s)",
+    "Each delivered with 2–3 hook variations",
+    { strong: "8–12 ready-to-post pieces", rest: ", plus a clip library" },
   ] as Feature[],
   note: "Credited toward your first month if you start a plan within 30 days.",
 };
@@ -104,23 +105,15 @@ export const notIncluded = [
 ];
 
 export const contentSteps = [
-  { num: "01", title: "Plan", desc: "We map out the month’s videos around your products, launches, and season." },
-  { num: "02", title: "Shoot", desc: "One batched shoot day captures everything, so your team gives up a few hours, not weeks." },
-  { num: "03", title: "Deliver", desc: "Edited vertical videos in multiple hooks and lengths, ready to post or test as ads, plus a library of clips for stories and quick posts." },
+  { num: "01", title: "Plan", desc: "We get to know your brand’s voice, look at what’s trending in your space, and map out a month of fun, engaging videos that will connect you with your audience." },
+  { num: "02", title: "Shoot", desc: "One batched shoot day captures everything, so your team gives up a few hours and can get back to work while we handle the edit." },
+  { num: "03", title: "Deliver", desc: "Edited vertical videos with multiple hooks, ready to post or test as ads, plus a library of clips for stories and quick posts." },
 ];
 
 export const contentFaqs = [
   {
-    q: "Who do you work with?",
-    a: "Food, family, and household product brands, plus other consumer brands that want video that looks like a commercial rather than a phone clip.",
-  },
-  {
-    q: "Are four videos a month enough?",
-    a: "Each video comes in several hooks and lengths, so four videos become eight to twelve pieces, plus a clip library for everything in between. And for ads, a few strong videos you can test usually do more than a high volume of quick posts. If you want more original videos, Core includes eight.",
-  },
-  {
     q: "Do we need to provide anything?",
-    a: "Product, access to your location or a space we agree on, and anyone you’d like on camera.",
+    a: "Your product, your brand style guide, access to your location or a space we agree on, and anyone you’d like on camera.",
   },
   {
     q: "How many revisions do we get?",
@@ -136,21 +129,59 @@ export const contentFaqs = [
   },
 ];
 
+// Short intro under the "Featured work" heading.
+export const featuredIntro =
+  "Vertical videos for Vitality Maestro, Michael’s holistic health program, which guides people through a 21-day reset for more energy, clarity, and vitality.";
+
 // Videos in the "Featured work" grid, played with the same card and lightbox as the portfolio.
-// Add 2–3 more entries here as they're ready; the grid makes room for them.
+// Add more entries here as they're ready; the grid makes room for them.
 export const featuredWork: Project[] = [
   {
-    slug: "nude-foods-market-spec",
-    title: "Spec spot — Nude Foods Market",
+    slug: "vitality-maestro-celery-juice",
+    title: "Celery Juice",
     category: "Brand Film",
-    format: "Commercial",
+    format: "Social video",
+    duration: "1:20",
+    description: "Celery juice as part of a morning routine, filmed close and clean so the ingredients do the talking.",
+    alt: "Michael drinking a jar of fresh celery juice",
+    vimeoId: "1231840555/d27d178573",
+    image: "vitality-maestro-drinking-celery-juice",
+    vertical: true,
+  },
+  {
+    slug: "vitality-maestro-papaya",
+    title: "Papaya",
+    category: "Brand Film",
+    format: "Social video",
     duration: "1:05",
-    description: "A spec commercial made for Nude Foods Market to show what a monthly plan can look like. Not a client commission.",
-    // TODO(Brian): stand-in video and still ("Michael Vitality - Papaya"). Swap vimeoId, image, alt and
-    // duration for the Nude Foods Market spot before this page goes live.
-    alt: "A man scooping seeds from a halved papaya in a kitchen",
+    description: "Michael breaks down papaya’s benefits for digestion, on camera in his kitchen.",
+    alt: "Michael slicing a fresh papaya in his kitchen",
     vimeoId: "1168321596/dfdc577ce9",
-    image: "michael-vitality-papaya",
+    image: "vitality-maestro-papaya-kitchen",
+    vertical: true,
+  },
+  {
+    slug: "vitality-maestro-lemon-water",
+    title: "Lemon Water",
+    category: "Brand Film",
+    format: "Social video",
+    duration: "0:51",
+    description: "Michael walks through his lemon water, with fresh lemons and a pinch of sea salt.",
+    alt: "Michael at a kitchen counter with a glass of water, sea salt, and fresh lemons",
+    vimeoId: "1231840554/0ffb2ee0d8",
+    image: "vitality-maestro-lemon-water",
+    vertical: true,
+  },
+  {
+    slug: "vitality-maestro-coffee",
+    title: "Coffee",
+    category: "Brand Film",
+    format: "Social video",
+    duration: "1:24",
+    description: "Michael takes a closer look at the everyday drip coffee maker.",
+    alt: "Michael opening the lid of a drip coffee maker on a kitchen counter",
+    vimeoId: "1231854032/d4d3057fa6",
+    image: "vitality-maestro-coffee-maker",
     vertical: true,
   },
 ];

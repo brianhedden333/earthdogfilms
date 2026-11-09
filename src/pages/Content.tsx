@@ -19,6 +19,7 @@ import {
   contentPage,
   contentSteps,
   featureKey,
+  featuredIntro,
   featuredWork,
   formatPrice,
   included,
@@ -189,13 +190,12 @@ const Content = () => {
           <h1 className="m-0 max-w-[1100px] font-display text-[clamp(52px,7.4vw,120px)] font-normal leading-[0.95] tracking-[-0.02em]">
             <span className="load-line">
               <span className="load-up">
-                Commercial-quality video, <em className="text-brand">every month.</em>
+                Scroll-stopping video,<br /> <em className="text-brand">every month.</em>
               </span>
             </span>
           </h1>
           <p className="load-fade m-0 mt-8 max-w-[640px] text-xl leading-[1.55] text-ink-3">
-            One shoot day. A month of polished short-form video for your brand — directed by a filmmaker, not churned
-            out by an agency.
+            One shoot day. A month of polished short-form video for your brand — directed by a filmmaker.
           </p>
           <div className="load-fade mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 [--load-delay:0.55s]">
             <BookLink className={primaryButton}>{contentPage.cta}</BookLink>
@@ -208,7 +208,10 @@ const Content = () => {
         {/* 2. Featured work */}
         <section aria-labelledby="work-heading" className={cn(sectionClass, "pt-0 min-[761px]:pt-0")}>
           <div className="border-t border-line pt-[72px] min-[761px]:pt-[96px]">
-            <SectionHeading kicker="Featured work" title="Made like a commercial." id="work-heading" />
+            <SectionHeading kicker="Featured work" title="High-quality reels for maximum engagement." id="work-heading" />
+            <Reveal delay={120}>
+              <p className="m-0 mt-6 max-w-[640px] text-lg leading-[1.6] text-ink-3">{featuredIntro}</p>
+            </Reveal>
             <div className="mt-12 grid grid-cols-[repeat(auto-fill,minmax(min(280px,100%),1fr))] gap-x-8 gap-y-14">
               {featuredWork.map((p, i) => (
                 <Reveal key={p.slug} delay={i * 90}>
